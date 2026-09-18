@@ -1,3 +1,30 @@
 .aside {
   grid-area: left-sidebar;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.options,
+.actions,
+.picks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.link:link,
+.link:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.more {
+  margin-top: auto;
 }

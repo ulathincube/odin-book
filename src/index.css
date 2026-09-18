@@ -1,8 +1,12 @@
 :root {
   --font-stack: "Google Sans", "Arial", "Helvetica", sans-serif;
   --font-size-standard: 1rem;
+  --font-weight-bold: 800;
+  --font-weight-normal: 500;
   --background-color: hsl(200deg 10% 95%);
   --text-color: hsl(200deg 95% 10%);
+  --link-color: hsl(200deg 95% 25%);
+  --padding: 10px;
 }
 
 body {
@@ -10,6 +14,7 @@ body {
   font-size: var(--font-size-standard);
   background-color: var(--background-color);
   color: var(--text-color);
+  font-weight: var(--font-weight-normal);
 }
 
 html,
