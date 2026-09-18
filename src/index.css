@@ -11,3 +11,9 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
