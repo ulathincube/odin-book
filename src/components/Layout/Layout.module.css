@@ -2,10 +2,10 @@
   display: grid;
   grid-template-areas:
     "header header header"
-    "left-sidebar main right-sidebar"
-    "footer footer footer";
-  grid-template-columns: 200px auto 200px;
-  grid-template-rows: 100px auto 100px;
+    "left-sidebar main right-sidebar";
+  grid-template-columns: 20% auto 20%;
+  grid-template-rows: 100px auto;
   width: 100%;
   min-height: 100%;
+  gap: 20px;
 }

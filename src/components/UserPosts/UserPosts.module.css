@@ -1,0 +1,10 @@
+.posts {
+  display: flex;
+  margin-left: calc(var(--padding) * -1);
+  margin-right: calc(var(--padding) * -1);
+}
+
+.list {
+  list-style: none;
+  flex: 1;
+}

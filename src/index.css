@@ -2,11 +2,21 @@
   --font-stack: "Google Sans", "Arial", "Helvetica", sans-serif;
   --font-size-standard: 1rem;
   --font-weight-bold: 800;
-  --font-weight-normal: 500;
+  --font-weight-normal: 400;
   --background-color: hsl(200deg 10% 95%);
   --text-color: hsl(200deg 95% 10%);
   --link-color: hsl(200deg 95% 25%);
+  --gray: hsl(200deg 10% 80%);
   --padding: 10px;
+  --border-radius: 20px;
+  --border-radius-small: 5px;
+  --border: 1px solid var(--gray);
+  --avatar-size: 48px;
+  --avatar-size-small: 24px;
+  --circle: 50%;
+  --padding-large: 20px;
+  --padding-button: var(--padding) var(--padding-large);
+  --shadow-small: 1px 2px 2px hsl(200deg 10% 10% / 0.15);
 }
 
 body {

@@ -1,0 +1,29 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+}
+
+.sources {
+  display: flex;
+}
+
+.source {
+  margin-left: -10px;
+  width: var(--avatar-size-small);
+  height: var(--avatar-size-small);
+  border-radius: var(--circle);
+  overflow: hidden;
+}
+
+.details {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  color: var(--gray);
+}

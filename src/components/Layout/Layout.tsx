@@ -3,7 +3,6 @@ import Header from "../Header"
 import LeftSidebar from "../LeftSidebar"
 import Main from "../Main"
 import RightSidebar from "../RightSidebar"
-import Footer from "../Footer"
 
 function Layout() {
   return (
@@ -12,7 +11,6 @@ function Layout() {
       <LeftSidebar />
       <Main />
       <RightSidebar />
-      <Footer />
     </section>
   )
 }

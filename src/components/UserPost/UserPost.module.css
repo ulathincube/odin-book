@@ -1,0 +1,86 @@
+.post {
+  padding: var(--padding-large);
+  flex: 1;
+  border-bottom: 1px solid var(--gray);
+  margin-right: cal(var(--padding) * -1);
+  margin-left: cal(var(--padding) * -1);
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.parent {
+  position: relative;
+}
+
+.image {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--circle);
+}
+
+.container {
+  display: flex;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
+}
+
+.username {
+  font-weight: var(--font-weight-bold);
+}
+
+.more {
+  margin-left: auto;
+}
+
+.info {
+  background-color: transparent;
+  border: none;
+}
+
+.content {
+  /* max-width: 55ch; */
+}
+
+.time {
+  color: var(--gray);
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action,
+.follow {
+  background-color: var(--background-color);
+  border: none;
+}
+
+.follow {
+  background-color: black;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--circle);
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--font-weight-bold);
+}
