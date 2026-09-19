@@ -21,6 +21,7 @@
   resize: none;
   width: 100%;
   padding: var(--padding);
+  font-weight: var(--font-weight-medium);
 }
 
 .field:focus {
@@ -41,10 +42,12 @@
   margin-left: calc(var(--padding) * -1);
   margin-right: calc(var(--padding) * -1);
   padding: var(--padding-large);
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius-top);
 }
 
 .post {
-  padding: var(--padding-button);
+  padding: 10px 30px;
   background-color: var(--background-color);
   border: 1px solid var(--gray);
   border-radius: var(--border-radius-small);

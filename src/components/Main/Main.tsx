@@ -10,6 +10,12 @@ function Main() {
       <UserPosts>
         <UserPost />
         <UserPost />
+        <UserPost />
+        <UserPost />
+        <UserPost />
+        <UserPost />
+        <UserPost />
+        <UserPost />
       </UserPosts>
     </main>
   )

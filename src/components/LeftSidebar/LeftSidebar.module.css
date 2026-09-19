@@ -4,6 +4,8 @@
   flex-direction: column;
   padding: var(--padding);
   font-weight: var(--font-weight-medium);
+  background-color: var(--background-color);
+  isolation: isolate;
 }
 
 .navigation {

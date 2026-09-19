@@ -14,6 +14,9 @@
   --padding: 10px;
   --border-radius: 20px;
   --border-radius-small: 5px;
+  --border-radius-medium: 10px;
+  --border-radius-top: var(--border-radius) var(--border-radius) 0 0;
+  --border-radius-bottom: 0 0 var(--border-radius) var(--border-radius);
   --border: 1px solid var(--gray);
   --avatar-size: 48px;
   --avatar-size-small: 24px;

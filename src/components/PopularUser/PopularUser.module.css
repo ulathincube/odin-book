@@ -17,4 +17,18 @@
 
 .username {
   font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.bio {
+  font-size: 0.9rem;
+}
+
+.action {
+  background-color: var(--theme-color);
+  padding: 5px 15px;
+  border: none;
+  color: var(--white);
+  border-radius: var(--border-radius-small);
+  font-size: 0.8rem;
 }

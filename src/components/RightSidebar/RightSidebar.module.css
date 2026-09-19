@@ -1,6 +1,5 @@
 .aside {
   grid-area: right-sidebar;
-  padding: var(--padding);
   display: flex;
   flex-direction: column;
   gap: 20px;

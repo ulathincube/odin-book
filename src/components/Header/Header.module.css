@@ -1,4 +1,5 @@
 .header {
   grid-area: header;
   padding: var(--padding);
+  background-color: var(--background-color);
 }

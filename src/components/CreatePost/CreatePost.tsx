@@ -13,7 +13,7 @@ function CreatePost() {
           <input
             type="text"
             className={styles.field}
-            placeholder="What's New"
+            placeholder="What's new?"
           ></input>
         </div>
         <div className={styles.group}>

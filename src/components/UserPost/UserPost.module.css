@@ -1,9 +1,14 @@
 .post {
   padding: var(--padding-large);
   flex: 1;
-  border-bottom: 1px solid var(--gray);
+  border: 1px solid var(--gray);
   margin-right: cal(var(--padding) * -1);
   margin-left: cal(var(--padding) * -1);
+  border-top: none;
+}
+
+.post:last-child {
+  border-radius: var(--border-radius-bottom);
 }
 
 .checkmark {
