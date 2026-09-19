@@ -11,6 +11,8 @@
   --gray: hsl(200deg 10% 80%);
   --white: hsl(200deg 15% 99%);
   --theme-color: hsl(200deg 100% 40%);
+  --overlay: hsl(200deg 95% 5% / 0.5);
+  --black: hsl(200deg 95% 5%);
   --padding: 10px;
   --border-radius: 20px;
   --border-radius-small: 5px;
@@ -33,10 +35,19 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-weight: var(--font-weight-normal);
+  position: relative;
 }
 
 html,
 body,
-#root {
+#root,
+#new-thread {
   height: 100%;
+}
+
+#new-thread {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
