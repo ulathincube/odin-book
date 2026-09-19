@@ -1,9 +1,31 @@
 import styles from "./LeftSidebar.module.css"
 import { Link } from "react-router"
 import ListOptionWithIcon from "../ListOptionWithIcon"
+import { useState, useEffect } from "react"
+import NewThread from "../NewThread"
 
 function LeftSidebar() {
-  // button content={}
+  const [createThread, setCreateThread] = useState<boolean>(false)
+
+  useEffect(() => {
+    const newThreadElement: HTMLElement = document.querySelector("#new-thread")!
+    const bodyElement = document.body
+
+    if (createThread) {
+      newThreadElement.style.visibility = "visible"
+      bodyElement.style.overflowY = "hidden"
+    }
+
+    return () => {
+      newThreadElement.style.visibility = "hidden"
+      bodyElement.style.overflowY = "visible"
+    }
+  }, [createThread])
+
+  function onCreateThread() {
+    setCreateThread(true)
+  }
+
   return (
     <aside className={styles.aside}>
       <nav className={styles.navigation}>
@@ -30,6 +52,7 @@ function LeftSidebar() {
             For You
           </ListOptionWithIcon>
           <ListOptionWithIcon
+            onButtonClick={onCreateThread}
             content={
               <svg
                 className={styles.icon}
@@ -215,6 +238,7 @@ function LeftSidebar() {
           More
         </ListOptionWithIcon>
       </article>
+      {createThread && <NewThread />}
     </aside>
   )
 }

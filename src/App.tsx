@@ -3,12 +3,10 @@ import Home from "./pages/Home"
 import Messages from "./pages/Messages"
 import User from "./pages/User"
 import NotFound from "./pages/NotFound"
-import NewThread from "./components/NewThread"
 
 function App() {
   return (
     <Router>
-      <NewThread />
       <Routes>
         <Route index={true} element={<Home />} />
         <Route path="users" element={<User />} />

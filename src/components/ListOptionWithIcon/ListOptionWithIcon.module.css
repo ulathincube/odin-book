@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.link.button {
+  border: none;
+}
+
 .link {
   display: flex;
   gap: 10px;
