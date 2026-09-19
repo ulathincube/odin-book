@@ -1,12 +1,30 @@
 import styles from "./UserPost.module.css"
+import { getTimeDifference } from "../../utils/luxon"
 
 interface Props {
   avatar: string
   username: string
   body: string
+  created: string
 }
 
-function UserPost({ avatar, username, body }: Props) {
+function UserPost({ avatar, username, body, created }: Props) {
+  let timeDuration: string | null = null
+  const { days, hours, minutes, seconds } = getTimeDifference(created)
+
+  if (seconds) {
+    timeDuration = `${seconds}s`
+  }
+  if (minutes) {
+    timeDuration = `${minutes}m`
+  }
+  if (hours) {
+    timeDuration = `${hours}h`
+  }
+  if (days) {
+    timeDuration = `${days}d`
+  }
+
   return (
     <li className={styles.post}>
       <div className={styles.container}>
@@ -35,7 +53,7 @@ function UserPost({ avatar, username, body }: Props) {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </span>
-            <span className={styles.time}>7h</span>
+            <span className={styles.time}>{timeDuration}</span>
             <div className={styles.more}>
               <button className={styles.info}>
                 <span className={styles.wrapper}>

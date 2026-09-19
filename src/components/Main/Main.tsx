@@ -27,7 +27,7 @@ function Main() {
         {data.data.map(
           ({
             id,
-
+            created,
             author: {
               username,
               profile: { avatar },
@@ -35,6 +35,7 @@ function Main() {
             body,
           }) => (
             <UserPost
+              created={created}
               key={id}
               avatar={avatar}
               username={username}
