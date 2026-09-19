@@ -6,6 +6,22 @@
   margin-left: cal(var(--padding) * -1);
 }
 
+.checkmark {
+  background-color: var(--theme-color);
+
+  border-radius: var(--circle);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5px;
+}
+
+.check {
+  color: var(--white);
+}
+
 .details {
   flex: 1;
   display: flex;
@@ -38,7 +54,7 @@
 }
 
 .username {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .more {
@@ -60,7 +76,7 @@
 
 .actions {
   display: flex;
-  gap: 5px;
+  gap: 25px;
 }
 
 .action,
@@ -83,4 +99,8 @@
   justify-content: center;
   align-items: center;
   font-weight: var(--font-weight-bold);
+}
+
+.icon {
+  color: var(--dark-gray);
 }

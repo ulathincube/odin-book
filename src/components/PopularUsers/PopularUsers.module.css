@@ -1,0 +1,15 @@
+.wrapper {
+  padding: var(--padding);
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--gray);
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
