@@ -22,8 +22,12 @@ function LeftSidebar() {
     }
   }, [createThread])
 
-  function onCreateThread() {
+  function onShowCreateThread() {
     setCreateThread(true)
+  }
+
+  function onHideCreateThread() {
+    setCreateThread(false)
   }
 
   return (
@@ -52,7 +56,7 @@ function LeftSidebar() {
             For You
           </ListOptionWithIcon>
           <ListOptionWithIcon
-            onButtonClick={onCreateThread}
+            onButtonClick={onShowCreateThread}
             content={
               <svg
                 className={styles.icon}
@@ -238,7 +242,7 @@ function LeftSidebar() {
           More
         </ListOptionWithIcon>
       </article>
-      {createThread && <NewThread />}
+      {createThread && <NewThread onHideCreateThread={onHideCreateThread} />}
     </aside>
   )
 }

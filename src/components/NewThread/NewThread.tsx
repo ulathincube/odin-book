@@ -3,14 +3,20 @@ import styles from "./NewThread.module.css"
 
 const container: HTMLElement = document.querySelector("#new-thread")!
 
-function NewThread() {
+type Props = {
+  onHideCreateThread: () => void
+}
+
+function NewThread({ onHideCreateThread }: Props) {
   return createPortal(
     <div className={styles.modal}>
       <div className={styles.overlay}>
         <div className={styles.container}>
           <section className={styles.thread}>
             <article className={styles.actions}>
-              <button className={styles.cancel}>Cancel</button>
+              <button onClick={onHideCreateThread} className={styles.cancel}>
+                Cancel
+              </button>
               <h3 className={styles.title}>New Thread</h3>
               <div className={styles.options}>
                 <button className={styles.option}>

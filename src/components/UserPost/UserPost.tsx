@@ -1,22 +1,24 @@
 import styles from "./UserPost.module.css"
 
-function UserPost() {
+interface Props {
+  avatar: string
+  username: string
+  body: string
+}
+
+function UserPost({ avatar, username, body }: Props) {
   return (
     <li className={styles.post}>
       <div className={styles.container}>
         <figure className={styles.box}>
           <div className={styles.parent}>
-            <img
-              src="/assets/images/avatar.jpg"
-              className={styles.image}
-              alt="User avatar"
-            />
+            <img src={avatar} className={styles.image} alt="User avatar" />
             <button className={styles.follow}>+</button>
           </div>
         </figure>
         <section className={styles.details}>
           <div className={styles.user}>
-            <p className={styles.username}>username</p>
+            <p className={styles.username}>{username}</p>
             <span className={styles.checkmark}>
               <svg
                 className={styles.check}
@@ -57,14 +59,7 @@ function UserPost() {
               </button>
             </div>
           </div>
-          <div className={styles.content}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio culpa
-            deleniti quidem a, ducimus laudantium, dolor dolorem itaque eum
-            explicabo facilis necessitatibus sed, saepe at recusandae repellat
-            reiciendis porro. Quasi eveniet dolores aut adipisci eaque velit,
-            consectetur consequatur officiis reprehenderit, culpa alias
-            excepturi maiores facere suscipit, animi qui voluptatum provident.
-          </div>
+          <div className={styles.content}>{body}</div>
           <div className={styles.actions}>
             <button className={styles.action}>
               <span className={styles.wrapper}>
