@@ -3,9 +3,11 @@ import { Link } from "react-router"
 import ListOptionWithIcon from "../ListOptionWithIcon"
 import { useState, useEffect } from "react"
 import NewThread from "../NewThread"
+import Search from "../Search"
 
 function LeftSidebar() {
   const [createThread, setCreateThread] = useState<boolean>(false)
+  const [showSearch, setShowSearch] = useState<boolean>(false)
 
   useEffect(() => {
     const newThreadElement: HTMLElement = document.querySelector("#new-thread")!
@@ -14,6 +16,9 @@ function LeftSidebar() {
     if (createThread) {
       newThreadElement.style.visibility = "visible"
       bodyElement.style.overflowY = "hidden"
+    } else {
+      newThreadElement.style.visibility = "hidden"
+      bodyElement.style.overflowY = "visible"
     }
 
     return () => {
@@ -22,12 +27,38 @@ function LeftSidebar() {
     }
   }, [createThread])
 
+  useEffect(() => {
+    const searchElement: HTMLElement = document.querySelector("#search")!
+    const bodyElement = document.body
+
+    if (showSearch) {
+      searchElement.style.visibility = "visible"
+      bodyElement.style.overflowY = "hidden"
+    } else {
+      searchElement.style.visibility = "hidden"
+      bodyElement.style.overflowY = "visible"
+    }
+
+    return () => {
+      searchElement.style.visibility = "hidden"
+      bodyElement.style.overflowY = "visible"
+    }
+  }, [showSearch])
+
   function onShowCreateThread() {
     setCreateThread(true)
   }
 
   function onHideCreateThread() {
     setCreateThread(false)
+  }
+
+  function onShowSearch() {
+    setShowSearch(true)
+  }
+
+  function onHideSearch() {
+    setShowSearch(false)
   }
 
   return (
@@ -78,6 +109,7 @@ function LeftSidebar() {
             New Thread
           </ListOptionWithIcon>
           <ListOptionWithIcon
+            onButtonClick={onShowSearch}
             content={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -243,6 +275,7 @@ function LeftSidebar() {
         </ListOptionWithIcon>
       </article>
       {createThread && <NewThread onHideCreateThread={onHideCreateThread} />}
+      {showSearch && <Search onHideSearch={onHideSearch} />}
     </aside>
   )
 }

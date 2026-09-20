@@ -1,0 +1,39 @@
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  backdrop-filter: blur(5px);
+}
+
+.overlay {
+  background-color: var(--overlay);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  /* background-color: var(--background-color); */
+  min-width: 50%;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+}
+
+.group {
+  flex: 1;
+  display: flex;
+}
+
+.field {
+  flex: 1;
+  padding: 20px;
+  border-radius: var(--border-radius-small);
+  outline: none;
+  border: none;
+  font-weight: var(--font-weight-medium);
+  box-shadow: var(--shadow-small);
+}
