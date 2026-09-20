@@ -5,6 +5,7 @@ import PopularUsers from "../PopularUsers"
 import PopularUser from "../PopularUser"
 import { getAllUsers } from "../../services/users"
 import { useQuery } from "@tanstack/react-query"
+import Loading from "../Loading"
 
 function RightSidebar() {
   const { isPending, isError, error, data } = useQuery({
@@ -13,7 +14,7 @@ function RightSidebar() {
   })
 
   if (isPending) {
-    return <div>...Loading...</div>
+    return <Loading />
   }
 
   if (isError) {

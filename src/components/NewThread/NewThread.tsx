@@ -1,5 +1,15 @@
 import { createPortal } from "react-dom"
 import styles from "./NewThread.module.css"
+import useUser from "../../hooks/useUser"
+import { createPost } from "../../services/posts"
+import { useMutation } from "@tanstack/react-query"
+import { useState } from "react"
+import Loading from "../Loading"
+
+interface Post {
+  body: string
+  authorId: string
+}
 
 const container: HTMLElement = document.querySelector("#new-thread")!
 
@@ -8,18 +18,48 @@ type Props = {
 }
 
 function NewThread({ onHideCreateThread }: Props) {
+  const [text, setText] = useState<string>("")
+  const { user } = useUser()
+  const { mutate, isPending } = useMutation({
+    mutationFn: (newPost: Post) => createPost(newPost),
+  })
+
+  const onCreatePost = (event: React.SubmitEvent<HTMLElement>) => {
+    event.preventDefault()
+    if (!user) return
+
+    const newPost: Post = {
+      body: text,
+      authorId: user.id,
+    }
+    mutate(newPost)
+    setText("")
+    onHideCreateThread()
+  }
+
+  const onTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const nextText = event.target.value
+    setText(nextText)
+  }
+
+  if (!user || isPending) return <Loading />
+
   return createPortal(
     <div className={styles.modal}>
       <div className={styles.overlay}>
         <div className={styles.container}>
           <section className={styles.thread}>
             <article className={styles.actions}>
-              <button onClick={onHideCreateThread} className={styles.cancel}>
+              <button
+                type="button"
+                onClick={onHideCreateThread}
+                className={styles.cancel}
+              >
                 Cancel
               </button>
               <h3 className={styles.title}>New Thread</h3>
               <div className={styles.options}>
-                <button className={styles.option}>
+                <button type="button" className={styles.option}>
                   <span className={styles.wrapper}>
                     <svg
                       className={styles.icon}
@@ -39,7 +79,7 @@ function NewThread({ onHideCreateThread }: Props) {
                     </svg>
                   </span>
                 </button>
-                <button className={styles.option}>
+                <button type="button" className={styles.option}>
                   <span className={styles.wrapper}>
                     <svg
                       className={styles.icon}
@@ -65,10 +105,10 @@ function NewThread({ onHideCreateThread }: Props) {
           <section className={styles.details}>
             <figure className={styles.info}>
               <div className={styles.box}>
-                <img src="/assets/images/avatar.jpg" alt="User avatar" />
+                <img src={user.profile.avatar} alt="User avatar" />
               </div>
               <div className={styles.user}>
-                <span className={styles.username}>username</span>
+                <span className={styles.username}>{user.username}</span>
                 <span className={styles.wrapper}>
                   <svg
                     className={`${styles.icon} ${styles.alt}`}
@@ -88,15 +128,18 @@ function NewThread({ onHideCreateThread }: Props) {
                 <span className={styles.topic}>Music Topic</span>
               </div>
             </figure>
-            <form className={styles.form}>
+            <form onSubmit={onCreatePost} className={styles.form}>
               <div className={styles.group}>
                 <textarea
+                  onChange={onTextChange}
                   className={styles.field}
                   placeholder="Add to Thread"
                 ></textarea>
               </div>
               <div className={`${styles.group} ${styles.alt}`}>
-                <button className={styles.post}>Post</button>
+                <button type="submit" className={styles.post}>
+                  Post
+                </button>
               </div>
             </form>
           </section>

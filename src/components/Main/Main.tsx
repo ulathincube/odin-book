@@ -4,6 +4,7 @@ import UserPosts from "../UserPosts/UserPosts"
 import UserPost from "../UserPost"
 import { useQuery } from "@tanstack/react-query"
 import { getAllPosts } from "../../services/posts"
+import Loading from "../Loading"
 
 function Main() {
   const { isPending, isError, error, data } = useQuery({
@@ -13,7 +14,7 @@ function Main() {
   })
 
   if (isPending) {
-    return <div>....Loading....</div>
+    return <Loading />
   }
 
   if (isError) {
