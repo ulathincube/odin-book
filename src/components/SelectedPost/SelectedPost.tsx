@@ -1,5 +1,6 @@
 import styles from "./SelectedPost.module.css"
 import Comment from "../Comment"
+import CommentBox from "../CommentBox"
 
 function SelectedPost() {
   return (
@@ -90,6 +91,7 @@ function SelectedPost() {
         <ul className={styles.list}>
           <Comment />
         </ul>
+        <CommentBox />
       </div>
     </main>
   )
