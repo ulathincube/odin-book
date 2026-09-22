@@ -7,6 +7,11 @@
   border-top: none;
 }
 
+.post:first-child {
+  border-radius: var(--round-me);
+  border-top: var(--border-me);
+}
+
 .post:last-child {
   border-radius: var(--border-radius-bottom);
 }
@@ -47,10 +52,6 @@
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: var(--circle);
-}
-
-.container {
-  display: flex;
 }
 
 .user {

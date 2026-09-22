@@ -97,3 +97,8 @@
 .share {
   background-color: var(--dark-gray);
 }
+
+.follows {
+  display: flex;
+  gap: var(--spacing-5);
+}

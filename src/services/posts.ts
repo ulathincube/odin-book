@@ -47,10 +47,6 @@ export async function createPost({
 export async function getAllPostsByUserId(
   userId: string,
 ): Promise<ResponseObject> {
-  const response = await api.post("/posts/user", {
-    params: {
-      userId,
-    },
-  })
+  const response = await api.get(`/posts/user/${userId}`)
   return response.data
 }

@@ -6,9 +6,16 @@ interface Props {
   username: string
   body: string
   created: string
+  roundFirstChild: boolean
 }
 
-function UserPost({ avatar, username, body, created }: Props) {
+function UserPost({
+  avatar,
+  username,
+  body,
+  created,
+  roundFirstChild = false,
+}: Props) {
   let timeDuration: string | null = null
   const { days, hours, minutes, seconds } = getTimeDifference(created)
 
@@ -26,7 +33,17 @@ function UserPost({ avatar, username, body, created }: Props) {
   }
 
   return (
-    <li className={styles.post}>
+    <li
+      className={styles.post}
+      style={
+        roundFirstChild
+          ? ({
+              "--round-me": "var(--border-radius-top)",
+              "--border-me": "1px solid var(--gray)",
+            } as React.CSSProperties)
+          : {}
+      }
+    >
       <div className={styles.container}>
         <figure className={styles.box}>
           <div className={styles.parent}>
