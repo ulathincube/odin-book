@@ -1,6 +1,8 @@
 :root {
   --font-stack: "Google Sans", "Arial", "Helvetica", sans-serif;
   --font-size-standard: 1rem;
+  --font-size-medium: 1.5rem;
+  --font-size-large: 2rem;
   --font-weight-bold: 800;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -14,6 +16,12 @@
   --overlay: hsl(200deg 95% 5% / 0.5);
   --black: hsl(200deg 95% 5%);
   --padding: 10px;
+  --spacing-5: 5px;
+  --spacing-10: 10px;
+  --spacing-15: 15px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+  --spacing-50: 50px;
   --border-radius: 20px;
   --border-radius-small: 5px;
   --border-radius-medium: 10px;
@@ -22,6 +30,7 @@
   --border: 1px solid var(--gray);
   --avatar-size: 48px;
   --avatar-size-small: 24px;
+  --avatar-size-large: 72px;
   --icon-size: 20px;
   --circle: 50%;
   --padding-large: 20px;
@@ -36,6 +45,7 @@ body {
   color: var(--text-color);
   font-weight: var(--font-weight-normal);
   position: relative;
+  padding: var(--padding);
 }
 
 html,

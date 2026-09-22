@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  min-height: 100%;
+  gap: var(--padding);
+  grid-template-areas:
+    "header header"
+    "left-sidebar main";
+  grid-template-columns: 20% auto;
+  grid-template-rows: 100px auto;
+}
