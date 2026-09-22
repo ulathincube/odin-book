@@ -29,6 +29,7 @@ function Main() {
           ({
             id,
             created,
+            likes,
             author: {
               username,
               profile: { avatar },
@@ -36,6 +37,8 @@ function Main() {
             body,
           }) => (
             <UserPost
+              id={id}
+              likes={likes}
               created={created}
               key={id}
               avatar={avatar}

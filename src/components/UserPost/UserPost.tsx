@@ -1,21 +1,49 @@
 import styles from "./UserPost.module.css"
 import { getTimeDifference } from "../../utils/luxon"
+import { useState } from "react"
+import { likePost } from "../../services/posts"
+import { useMutation } from "@tanstack/react-query"
+import Loading from "../Loading"
 
 interface Props {
+  id: string
   avatar: string
   username: string
   body: string
   created: string
-  roundFirstChild: boolean
+  likes: number
+  roundFirstChild?: boolean
 }
 
 function UserPost({
+  id,
   avatar,
   username,
   body,
   created,
+  likes,
   roundFirstChild = false,
 }: Props) {
+  const [isLike, setIsLike] = useState<boolean>(false)
+
+  const { isPending, mutate, isError, error } = useMutation({
+    mutationFn: ({ postId, likes }: { postId: string; likes: number }) =>
+      likePost({ postId, likes }),
+  })
+
+  const onClickLike = () => {
+    let likesCount
+    const nextState = !isLike
+    setIsLike(nextState)
+
+    if (nextState) {
+      likesCount = likes + 1
+    } else {
+      likesCount = likes
+    }
+    mutate({ postId: id, likes: likesCount })
+  }
+
   let timeDuration: string | null = null
   const { days, hours, minutes, seconds } = getTimeDifference(created)
 
@@ -31,6 +59,10 @@ function UserPost({
   if (days) {
     timeDuration = `${days}d`
   }
+
+  if (isPending) return <Loading />
+
+  if (isError) return <div>{error.message}</div>
 
   return (
     <li
@@ -96,7 +128,7 @@ function UserPost({
           </div>
           <div className={styles.content}>{body}</div>
           <div className={styles.actions}>
-            <button className={styles.action}>
+            <button onClick={onClickLike} className={styles.action}>
               <span className={styles.wrapper}>
                 <svg
                   className={styles.icon}
@@ -104,7 +136,7 @@ function UserPost({
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  fill="none"
+                  fill={isLike ? "currentColor" : "none"}
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
@@ -113,6 +145,7 @@ function UserPost({
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                 </svg>
               </span>
+              <span className={styles.count}>{isLike ? likes + 1 : likes}</span>
             </button>
             <button className={styles.action}>
               <span className={styles.wrapper}>
@@ -131,6 +164,7 @@ function UserPost({
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
               </span>
+              <span className={styles.count}>0</span>
             </button>
             <button className={styles.action}>
               <span className={styles.wrapper}>
@@ -151,6 +185,7 @@ function UserPost({
                   <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
                 </svg>
               </span>
+              <span className={styles.count}>0</span>
             </button>
             <button className={styles.action}>
               <span className={styles.wrapper}>
@@ -170,6 +205,7 @@ function UserPost({
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
               </span>
+              <span className={styles.count}>0</span>
             </button>
           </div>
         </section>

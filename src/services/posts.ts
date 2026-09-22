@@ -4,7 +4,7 @@ interface Post {
   body: string
   id: string
   created: string
-  likes: string
+  likes: number
   author: {
     username: string
     profile: {
@@ -48,5 +48,18 @@ export async function getAllPostsByUserId(
   userId: string,
 ): Promise<ResponseObject> {
   const response = await api.get(`/posts/user/${userId}`)
+  return response.data
+}
+
+export async function likePost({
+  postId,
+  likes,
+}: {
+  postId: string
+  likes: number
+}) {
+  const response = await api.post(`/posts/${postId}/like`, {
+    likes,
+  })
   return response.data
 }

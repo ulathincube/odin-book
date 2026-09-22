@@ -91,6 +91,18 @@
   border: none;
 }
 
+.action {
+  display: flex;
+  gap: var(--spacing-5);
+  align-items: center;
+}
+
+.count {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
 .follow {
   background-color: black;
   width: 24px;
@@ -109,4 +121,5 @@
 
 .icon {
   color: var(--dark-gray);
+  stroke-width: 1.5;
 }

@@ -79,6 +79,8 @@ function Profile({ userId }: Props) {
           <UserPosts>
             {data.data.posts.map((postObject) => (
               <UserPost
+                id={postObject.id}
+                likes={postObject.likes}
                 roundFirstChild={true}
                 key={postObject.id}
                 avatar={data.data.profile.avatar}
