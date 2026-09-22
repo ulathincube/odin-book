@@ -7,6 +7,12 @@
   border-top: none;
 }
 
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: currentColor;
+}
+
 .post:first-child {
   border-radius: var(--round-me);
   border-top: var(--border-me);

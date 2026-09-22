@@ -1,17 +1,36 @@
 import styles from "./SelectedPost.module.css"
 import Comment from "../Comment"
 import CommentBox from "../CommentBox"
+import { getPostById } from "../../services/posts"
+import { useQuery } from "@tanstack/react-query"
+import Loading from "../Loading"
 
-function SelectedPost() {
+interface Props {
+  postId: string
+}
+
+function SelectedPost({ postId }: Props) {
+  const { isPending, isError, error, data } = useQuery({
+    queryKey: ["getPost", postId],
+    queryFn: () => getPostById(postId),
+  })
+
+  if (isPending) return <Loading />
+  if (isError) return <div>{error.message}</div>
+
   return (
     <main className={styles.main}>
       <div className={styles.context}>
         <section className={styles.details}>
           <article className={styles.user}>
             <div className={styles.box}>
-              <img src="/assets/images/avatar.jpg" className={styles.avatar} />
+              <img
+                src={data.data.author.profile.avatar}
+                className={styles.avatar}
+                alt="User avatar"
+              />
             </div>
-            <p className={styles.name}>FullName</p>
+            <p className={styles.name}>{data.data.author.fullname}</p>
           </article>
           <div className={styles.other}>
             <button className={styles.more}>
@@ -35,11 +54,7 @@ function SelectedPost() {
           </div>
         </section>
         <section className={styles.post}>
-          <p className={styles.text}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
-            voluptatum facilis provident nobis autem, eum accusamus libero qui,
-            est praesentium aspernatur quae harum nihil obcaecati.
-          </p>
+          <p className={styles.text}>{data.data.body}</p>
           <div className={styles.reactions}>
             <div className={styles.actions}>
               <button className={styles.action}>
@@ -89,7 +104,9 @@ function SelectedPost() {
       </div>
       <div className={styles.comments}>
         <ul className={styles.list}>
-          <Comment />
+          {data.data.comments.map((commentObject) => (
+            <Comment key={commentObject.id} />
+          ))}
         </ul>
         <CommentBox />
       </div>

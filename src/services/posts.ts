@@ -1,16 +1,32 @@
 import api from "../utils/axios"
 
+interface Comment {
+  body: string
+  id: string
+  created: string
+  likes: number
+  author: {
+    fullname: string
+    username: string
+    profile: {
+      avatar: string
+    }
+  }
+}
+
 interface Post {
   body: string
   id: string
   created: string
   likes: number
   author: {
+    fullname: string
     username: string
     profile: {
       avatar: string
     }
   }
+  comments: Comment[]
 }
 
 interface ResponseObject {
