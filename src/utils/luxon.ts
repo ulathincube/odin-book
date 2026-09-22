@@ -5,7 +5,7 @@ export function getTimeDifference(time: string) {
   const start = DateTime.fromISO(time)
 
   const difference = end
-    .diff(start, ["days", "hours", "minutes", "seconds"])
+    .diff(start, ["months", "weeks", "days", "hours", "minutes", "seconds"])
     .toObject()
   return difference
 }

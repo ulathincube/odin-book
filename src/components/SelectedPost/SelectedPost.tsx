@@ -4,6 +4,7 @@ import CommentBox from "../CommentBox"
 import { getPostById } from "../../services/posts"
 import { useQuery } from "@tanstack/react-query"
 import Loading from "../Loading"
+import { getTimeDifference } from "../../utils/luxon"
 
 interface Props {
   postId: string
@@ -17,6 +18,30 @@ function SelectedPost({ postId }: Props) {
 
   if (isPending) return <Loading />
   if (isError) return <div>{error.message}</div>
+
+  let timeDuration: string | null = null
+  const { months, weeks, days, hours, minutes, seconds } = getTimeDifference(
+    data.data.created,
+  )
+
+  if (seconds) {
+    timeDuration = `${seconds}s`
+  }
+  if (minutes) {
+    timeDuration = `${minutes}m`
+  }
+  if (hours) {
+    timeDuration = `${hours}h`
+  }
+  if (days) {
+    timeDuration = `${days}d`
+  }
+  if (weeks) {
+    timeDuration = `${weeks}w`
+  }
+  if (months) {
+    timeDuration = `${months}mon`
+  }
 
   return (
     <main className={styles.main}>
@@ -97,7 +122,7 @@ function SelectedPost({ postId }: Props) {
               </button>
             </div>
             <div className={styles.elapsed}>
-              <p className={styles.time}>1 month ago</p>
+              <p className={styles.time}>{timeDuration}</p>
             </div>
           </div>
         </section>
