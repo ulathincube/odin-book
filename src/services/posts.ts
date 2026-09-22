@@ -63,3 +63,8 @@ export async function likePost({
   })
   return response.data
 }
+
+export async function getPostById(postId: string): Promise<CreatePostResponse> {
+  const response = await api.get(`/posts/${postId}`)
+  return response.data
+}
