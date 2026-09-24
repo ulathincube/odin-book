@@ -1,6 +1,4 @@
 import styles from "./RightSidebar.module.css"
-import News from "../News"
-import NewsGroup from "../NewsGroup"
 import PopularUsers from "../PopularUsers"
 import PopularUser from "../PopularUser"
 import { getAllUsers } from "../../services/users"
@@ -23,10 +21,6 @@ function RightSidebar() {
 
   return (
     <aside className={styles.aside}>
-      <NewsGroup>
-        <News />
-        <News />
-      </NewsGroup>
       <PopularUsers>
         {data.data.map(({ id, username, profile: { status, avatar } }) => (
           <PopularUser

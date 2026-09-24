@@ -21,7 +21,8 @@
   resize: none;
   width: 100%;
   padding: var(--padding);
-  font-weight: var(--font-weight-medium);
+  font-weight: 400;
+  font-size: 1.3rem;
 }
 
 .field:focus {
@@ -52,4 +53,5 @@
   border: 1px solid var(--gray);
   border-radius: var(--border-radius-small);
   filter: drop-shadow(var(--shadow-small));
+  font-size: 1.2rem;
 }

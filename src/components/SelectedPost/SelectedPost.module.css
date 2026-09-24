@@ -15,9 +15,7 @@
 }
 
 .name {
-  font-size: var(--font-size-medium);
-  font-weight: var(--font-weight-bold);
-  color: var(--dark-gray);
+  font-size: var(--font-size-large);
 }
 
 .box {
@@ -78,7 +76,7 @@
 }
 
 .text {
-  max-width: 65ch;
+  font-size: 1.3rem;
 }
 
 .list {
