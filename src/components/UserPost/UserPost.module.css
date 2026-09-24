@@ -47,7 +47,7 @@
 
 .container {
   display: flex;
-  gap: 10px;
+  gap: var(--spacing-20);
 }
 
 .parent {
@@ -55,8 +55,8 @@
 }
 
 .image {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
+  width: var(--avatar-size-large);
+  height: var(--avatar-size-large);
   border-radius: var(--circle);
 }
 
@@ -66,7 +66,8 @@
 }
 
 .username {
-  font-weight: var(--font-weight-medium);
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 .more {
@@ -79,7 +80,7 @@
 }
 
 .content {
-  /* max-width: 55ch; */
+  font-size: 1.3rem;
 }
 
 .time {

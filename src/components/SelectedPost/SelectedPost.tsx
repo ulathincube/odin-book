@@ -5,6 +5,7 @@ import { getPostById } from "../../services/posts"
 import { useQuery } from "@tanstack/react-query"
 import Loading from "../Loading"
 import { getTimeDifference } from "../../utils/luxon"
+import { useState } from "react"
 
 interface Props {
   postId: string
@@ -15,6 +16,10 @@ function SelectedPost({ postId }: Props) {
     queryKey: ["getPost", postId],
     queryFn: () => getPostById(postId),
   })
+
+  const [liked, setLiked] = useState<boolean>(false)
+
+  const onToggleLike = () => setLiked(!liked)
 
   if (isPending) return <Loading />
   if (isError) return <div>{error.message}</div>
@@ -82,14 +87,14 @@ function SelectedPost({ postId }: Props) {
           <p className={styles.text}>{data.data.body}</p>
           <div className={styles.reactions}>
             <div className={styles.actions}>
-              <button className={styles.action}>
+              <button onClick={onToggleLike} className={styles.action}>
                 <span className={styles.wrapper}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
-                    fill="none"
+                    fill={liked ? "currentColor" : "none"}
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
@@ -99,7 +104,9 @@ function SelectedPost({ postId }: Props) {
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                   </svg>
                 </span>
-                <span className={styles.count}>0</span>
+                <span className={styles.count}>
+                  {liked ? data.data.likes + 1 : data.data.likes}
+                </span>
               </button>
               <button className={styles.action}>
                 <span className={styles.wrapper}>

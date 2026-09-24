@@ -72,3 +72,16 @@ export async function getAllUserData(
   const response = await api.get(`/users/${userId}`)
   return response.data
 }
+
+export async function followUser({
+  currentUser,
+  userToFollow,
+}: {
+  currentUser: string
+  userToFollow: string
+}): Promise<{ data: string; error: Error | string; message: string }> {
+  const response = await api.post(
+    `/users/${currentUser}/follow/${userToFollow}`,
+  )
+  return response.data
+}

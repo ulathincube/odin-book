@@ -2,9 +2,12 @@ import styles from "./Profile.module.css"
 import { Link } from "react-router"
 import UserPosts from "../UserPosts"
 import UserPost from "../UserPost"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { getAllUserData } from "../../services/users"
 import Loading from "../Loading"
+import { followUser } from "../../services/users"
+import { useMutation } from "@tanstack/react-query"
+import useUser from "../../hooks/useUser"
 
 interface Props {
   userId: string
@@ -15,6 +18,24 @@ function Profile({ userId }: Props) {
     queryKey: ["getUserData", userId],
     queryFn: () => getAllUserData(userId),
   })
+
+  const queryClient = useQueryClient()
+
+  const { user } = useUser()
+
+  const mutation = useMutation({
+    mutationFn: () =>
+      followUser({ currentUser: user!.id, userToFollow: userId }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["getUserData", userId],
+      })
+    },
+  })
+
+  const onUserFollow = () => {
+    mutation.mutate()
+  }
 
   if (isPending) return <Loading />
 
@@ -58,7 +79,9 @@ function Profile({ userId }: Props) {
           </ul>
           <section className={styles.actions}>
             <div className={styles.action}>
-              <button className={styles.follow}>Follow</button>
+              <button onClick={onUserFollow} className={styles.follow}>
+                Follow
+              </button>
             </div>
             <div className={styles.action}>
               <button className={styles.share}>Share</button>
