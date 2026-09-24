@@ -2,6 +2,12 @@
   display: flex;
 }
 
+.link:link,
+.link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
   display: flex;
   gap: 10px;
@@ -22,13 +28,4 @@
 
 .bio {
   font-size: 0.9rem;
-}
-
-.action {
-  background-color: var(--theme-color);
-  padding: 5px 15px;
-  border: none;
-  color: var(--white);
-  border-radius: var(--border-radius-small);
-  font-size: 0.8rem;
 }

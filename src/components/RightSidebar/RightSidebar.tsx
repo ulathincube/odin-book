@@ -30,6 +30,7 @@ function RightSidebar() {
       <PopularUsers>
         {data.data.map(({ id, username, profile: { status, avatar } }) => (
           <PopularUser
+            id={id}
             key={id}
             username={username}
             bio={status}
