@@ -27,6 +27,9 @@ interface Post {
     }
   }
   comments: Comment[]
+  _count?: {
+    comments: number
+  }
 }
 
 interface ResponseObject {

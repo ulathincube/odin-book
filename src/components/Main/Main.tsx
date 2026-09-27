@@ -35,6 +35,7 @@ function Main() {
               profile: { avatar },
             },
             body,
+            _count,
           }) => (
             <UserPost
               id={id}
@@ -44,6 +45,7 @@ function Main() {
               avatar={avatar}
               username={username}
               body={body}
+              commentCount={_count!.comments}
             />
           ),
         )}

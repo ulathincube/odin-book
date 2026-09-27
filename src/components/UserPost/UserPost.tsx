@@ -14,6 +14,7 @@ interface Props {
   created: string
   likes: number
   roundFirstChild?: boolean
+  commentCount: number
 }
 
 function UserPost({
@@ -24,6 +25,7 @@ function UserPost({
   created,
   likes,
   roundFirstChild = false,
+  commentCount,
 }: Props) {
   const [isLike, setIsLike] = useState<boolean>(false)
 
@@ -64,6 +66,8 @@ function UserPost({
   if (isPending) return <Loading />
 
   if (isError) return <div>{error.message}</div>
+
+  console.log({ commentCount })
 
   return (
     <li
@@ -168,7 +172,7 @@ function UserPost({
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
                 </span>
-                <span className={styles.count}>0</span>
+                <span className={styles.count}>{commentCount}</span>
               </button>
               <button className={styles.action}>
                 <span className={styles.wrapper}>
