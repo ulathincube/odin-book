@@ -20,12 +20,14 @@ function CreatePost() {
 
   const onCreatePost = (event: React.SubmitEvent<HTMLElement>) => {
     event.preventDefault()
-    if (!user) return
+
+    if (!user && !!text) return
 
     const newPost: Post = {
       body: text,
-      authorId: user.id,
+      authorId: user!.id,
     }
+
     mutate(newPost)
     setText("")
   }
