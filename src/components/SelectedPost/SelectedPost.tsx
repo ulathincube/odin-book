@@ -137,7 +137,14 @@ function SelectedPost({ postId }: Props) {
       <div className={styles.comments}>
         <ul className={styles.list}>
           {data.data.comments.map((commentObject) => (
-            <Comment key={commentObject.id} />
+            <Comment
+              id={commentObject.id}
+              key={commentObject.id}
+              body={commentObject.body}
+              created={commentObject.created}
+              likes={commentObject.likes}
+              author={commentObject.author}
+            />
           ))}
         </ul>
         <CommentBox />

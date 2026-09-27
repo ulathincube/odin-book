@@ -17,7 +17,12 @@ interface Props {
 }
 
 function Comment({ body, id, created, likes, author }: Props) {
+  const [isLiked, setIsLiked] = useState<boolean>(false)
+
+  const onToggleLike = () => setIsLiked(!isLiked)
+
   let timeElapsed: string | null = null
+
   const { months, weeks, days, hours, minutes, seconds } =
     getTimeDifference(created)
 
@@ -84,7 +89,7 @@ function Comment({ body, id, created, likes, author }: Props) {
         <p className={styles.written}>{body}</p>
         <div className={styles.reactions}>
           <div className={styles.container}>
-            <button className={styles.action}>
+            <button onClick={onToggleLike} className={styles.action}>
               <span className={styles.wrapper}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +106,9 @@ function Comment({ body, id, created, likes, author }: Props) {
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                 </svg>
               </span>
-              <span className={styles.count}>0</span>
+              <span className={styles.count}>
+                {isLiked ? likes + 1 : likes}
+              </span>
             </button>
           </div>
           <div className={styles.elapsed}>
