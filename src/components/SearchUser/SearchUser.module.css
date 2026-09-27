@@ -1,0 +1,4 @@
+.wrapper {
+  border-bottom: var(--border-simple);
+  padding: var(--spacing-10) 0;
+}
