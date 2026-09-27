@@ -1,8 +1,15 @@
 import styles from "./CommentBox.module.css"
+import { useState } from "react"
 
 function CommentBox() {
+  const [comment, setComment] = useState<string>("")
+
   const onFormSubmit = (event: React.SubmitEvent) => {
     event.preventDefault()
+  }
+
+  const onChangeComment = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setComment(event.target.value)
   }
 
   return (
@@ -12,7 +19,13 @@ function CommentBox() {
           <label className={styles.label} htmlFor="comment">
             Comment
           </label>
-          <textarea placeholder="Reply" id="comment" className={styles.field} />
+          <textarea
+            value={comment}
+            onChange={onChangeComment}
+            placeholder="Reply"
+            id="comment"
+            className={styles.field}
+          />
         </div>
         <div className={styles.group}>
           <span className={styles.box}>
