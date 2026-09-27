@@ -1,5 +1,7 @@
+import MessageLayout from "../../components/MessageLayout"
+
 function Messages() {
-  return <>Messages</>
+  return <MessageLayout />
 }
 
 export default Messages

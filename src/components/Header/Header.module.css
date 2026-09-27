@@ -1,5 +1,8 @@
-.header {
+.wrapper {
   grid-area: header;
   padding: var(--padding);
   background-color: var(--background-color);
+  border-bottom: var(--border-simple);
+  display: flex;
+  align-items: center;
 }

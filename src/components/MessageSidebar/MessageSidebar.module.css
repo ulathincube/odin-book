@@ -1,3 +1,4 @@
 .wrapper {
   grid-area: left-sidebar;
+  border-right: var(--border-simple);
 }

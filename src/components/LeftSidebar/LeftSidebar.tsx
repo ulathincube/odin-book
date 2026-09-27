@@ -132,6 +132,7 @@ function LeftSidebar() {
         </ul>
         <ul className={styles.actions}>
           <ListOptionWithIcon
+            href="/messages"
             content={
               <svg
                 className={styles.icon}

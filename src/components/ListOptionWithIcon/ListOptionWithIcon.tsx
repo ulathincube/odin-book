@@ -4,9 +4,15 @@ import { Link } from "react-router"
 interface Props extends React.PropsWithChildren {
   content: React.ReactNode
   onButtonClick?: () => void
+  href?: string
 }
 
-function ListOptionWithIcon({ children, content, onButtonClick }: Props) {
+function ListOptionWithIcon({
+  children,
+  content,
+  onButtonClick,
+  href = "/",
+}: Props) {
   let component
   if (onButtonClick) {
     component = (
@@ -20,7 +26,7 @@ function ListOptionWithIcon({ children, content, onButtonClick }: Props) {
     )
   } else {
     component = (
-      <Link to="/" className={styles.link}>
+      <Link to={href} className={styles.link}>
         <span className={styles.wrapper}>{content}</span>
         <span className={styles.text}>{children}</span>
       </Link>
