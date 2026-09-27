@@ -33,6 +33,7 @@ function CommentBox({ postId }: Props) {
   const onFormSubmit = (event: React.SubmitEvent) => {
     event.preventDefault()
     mutate({ body: comment, postId: postId!, authorId: user!.id })
+    setComment("")
   }
 
   const onChangeComment = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
