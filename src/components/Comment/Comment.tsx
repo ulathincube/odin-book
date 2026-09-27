@@ -1,5 +1,6 @@
 import styles from "./Comment.module.css"
 import { useState } from "react"
+import { getTimeDifference } from "../../utils/luxon"
 
 interface Props {
   body: string
@@ -16,6 +17,33 @@ interface Props {
 }
 
 function Comment({ body, id, created, likes, author }: Props) {
+  let timeElapsed: string | null = null
+  const { months, weeks, days, hours, minutes, seconds } =
+    getTimeDifference(created)
+
+  if (seconds) {
+    timeElapsed = `${seconds}s`
+  }
+
+  if (minutes) {
+    timeElapsed = `${minutes}m`
+  }
+
+  if (hours) {
+    timeElapsed = `${hours}h`
+  }
+
+  if (days) {
+    timeElapsed = `${days}d`
+  }
+  if (weeks) {
+    timeElapsed = `${weeks}w`
+  }
+
+  if (months) {
+    timeElapsed = `${months}mon`
+  }
+
   return (
     <li className={styles.comment}>
       <section className={styles.details}>
@@ -77,7 +105,7 @@ function Comment({ body, id, created, likes, author }: Props) {
             </button>
           </div>
           <div className={styles.elapsed}>
-            <p className={styles.time}>1 month ago</p>
+            <p className={styles.time}>{timeElapsed}</p>
           </div>
         </div>
       </section>
