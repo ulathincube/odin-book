@@ -1,17 +1,36 @@
 import styles from "./Comment.module.css"
+import { useState } from "react"
 
-function Comment() {
+interface Props {
+  body: string
+  id: string
+  created: string
+  likes: number
+  author: {
+    fullname: string
+    username: string
+    profile: {
+      avatar: string
+    }
+  }
+}
+
+function Comment({ body, id, created, likes, author }: Props) {
   return (
     <li className={styles.comment}>
       <section className={styles.details}>
         <div className={styles.user}>
           <div className={styles.box}>
-            <img src="/assets/images/avatar.jpg" className={styles.avatar} />
+            <img
+              src={author.profile.avatar}
+              className={styles.avatar}
+              alt={author.fullname}
+            />
           </div>
         </div>
       </section>
       <div className={styles.name}>
-        <p className={styles.usernname}>FullName</p>
+        <p className={styles.usernname}>{author.fullname}</p>
         <div className={styles.other}>
           <button className={styles.more}>
             <svg
@@ -34,11 +53,7 @@ function Comment() {
         </div>
       </div>
       <section className={styles.text}>
-        <p className={styles.written}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto culpa
-          itaque placeat sequi, nobis ab eum aut saepe velit aliquid explicabo
-          doloremque magni fuga, quam nemo fugiat, impedit similique vitae.
-        </p>
+        <p className={styles.written}>{body}</p>
         <div className={styles.reactions}>
           <div className={styles.container}>
             <button className={styles.action}>
