@@ -1,0 +1,8 @@
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "header header" "left-sidebar main";
+  grid-template-columns: minmax(200px, 300px);
+  grid-template-rows: 100px 1fr;
+}
