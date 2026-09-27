@@ -147,7 +147,7 @@ function SelectedPost({ postId }: Props) {
             />
           ))}
         </ul>
-        <CommentBox />
+        <CommentBox postId={postId} />
       </div>
     </main>
   )

@@ -1,10 +1,9 @@
 import styles from "./CommentBox.module.css"
 import { useState } from "react"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { createComment } from "../../services/comment"
 import useUser from "../../hooks/useUser"
 import Loading from "../Loading"
-import { useParams } from "react-router"
 
 interface CreateComment {
   body: string
@@ -12,15 +11,23 @@ interface CreateComment {
   authorId: string
 }
 
-function CommentBox() {
+interface Props {
+  postId: string
+}
+
+function CommentBox({ postId }: Props) {
   const [comment, setComment] = useState<string>("")
 
   const { user } = useUser()
-  const { postId } = useParams()
+  const queryClient = useQueryClient()
 
   const { isPending, isError, error, mutate } = useMutation({
     mutationFn: ({ body, postId, authorId }: CreateComment) =>
       createComment({ body, postId, authorId }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: ["getPost", postId],
+      }),
   })
 
   const onFormSubmit = (event: React.SubmitEvent) => {
