@@ -2,3 +2,13 @@
   grid-area: left-sidebar;
   border-right: var(--border-simple);
 }
+
+.box {
+  align-self: center;
+}
+
+.users {
+  padding: var(--spacing-20) 0;
+  display: flex;
+  gap: var(--spacing-10);
+}
