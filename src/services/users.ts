@@ -21,6 +21,7 @@ interface Post {
 
 interface ExpandedUser extends User {
   fullname: string
+  username: string
   profile: {
     id: string
     status: string

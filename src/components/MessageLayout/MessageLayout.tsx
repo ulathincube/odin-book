@@ -5,7 +5,22 @@ import MessageMain from "../MessageMain"
 import { Socket, io } from "socket.io-client"
 import { useEffect, useState } from "react"
 
-function MessageLayout() {
+interface User {
+  username: string
+  profile: {
+    id: string
+    status: string
+    avatar: string
+    birthday: string
+    location: string
+  }
+}
+
+interface Props {
+  user?: User | null
+}
+
+function MessageLayout({ user = null }: Props) {
   const [webSocket, setWebSocket] = useState<Socket | null>(null)
 
   useEffect(() => {
@@ -22,7 +37,7 @@ function MessageLayout() {
     <article className={styles.wrapper}>
       <Header />
       <MessageSidebar />
-      <MessageMain />
+      <MessageMain user={user} />
     </article>
   )
 }

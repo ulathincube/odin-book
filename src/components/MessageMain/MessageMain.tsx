@@ -3,9 +3,13 @@ import { Link } from "react-router"
 
 interface User {
   username: string
-  avatar: string
-  created: string
-  followers: number
+  profile: {
+    id: string
+    status: string
+    avatar: string
+    birthday: string
+    location: string
+  }
 }
 
 interface Props {
@@ -21,7 +25,7 @@ function MessageMain({ user = null }: Props) {
             <figure className={styles.container}>
               <div className={styles.box}>
                 <img
-                  src={user.avatar}
+                  src={user.profile.avatar}
                   alt={user.username}
                   className={styles.avatar}
                 />
