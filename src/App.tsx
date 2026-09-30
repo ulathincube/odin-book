@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router"
 import Home from "./pages/Home"
 import Messages from "./pages/Messages"
+import Chat from "./pages/Chat"
 import UserProfile from "./pages/UserProfile"
 import PostDetail from "./pages/PostDetail"
 import NotFound from "./pages/NotFound"
@@ -47,6 +48,7 @@ function App() {
           <Route index={true} element={<Home />} />
           <Route path="users/:userId" element={<UserProfile />} />
           <Route path="posts/:postId" element={<PostDetail />} />
+          <Route path="messages/chat/:userId" element={<Chat />} />
           <Route path="messages" element={<Messages />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
