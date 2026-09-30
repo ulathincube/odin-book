@@ -102,6 +102,7 @@ function Profile({ userId }: Props) {
           <UserPosts>
             {data.data.posts.map((postObject) => (
               <UserPost
+                commentCount={postObject._count.comments}
                 id={postObject.id}
                 likes={postObject.likes}
                 roundFirstChild={true}

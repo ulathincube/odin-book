@@ -14,6 +14,9 @@ interface Post {
   body: string
   created: string
   likes: number
+  _count: {
+    comments: number
+  }
 }
 
 interface ExpandedUser extends User {
@@ -52,7 +55,13 @@ interface ExpandedUserResponse {
   message: string
 }
 
-export async function getAllUsers(): Promise<ResponseObject> {
+interface ExpandedUsersResponse {
+  data: ExpandedUser[]
+  error: null | string
+  message: string
+}
+
+export async function getAllUsers(): Promise<ExpandedUsersResponse> {
   const response = await api.get("/users")
   return response.data
 }
