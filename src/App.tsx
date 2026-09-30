@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import { findUserByEmail } from "./services/users"
 import { useState, useEffect, useCallback } from "react"
 import UserContext from "./context/UserContext"
+import { io } from "socket.io-client"
 
 interface User {
   username: string
@@ -16,6 +17,8 @@ interface User {
     avatar: string
   }
 }
+
+const socket = io(import.meta.env.VITE_SOCKET_URL)
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
