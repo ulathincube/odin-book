@@ -57,7 +57,7 @@ function MessageMain({ user = null }: Props) {
                 <p className={styles.date}>Joined 20 June 2010</p>
                 <p className={styles.followers}>2000 Followers</p>
                 <div className={styles.actions}>
-                  <Link className={styles.link} to="">
+                  <Link className={styles.link} to="/">
                     View Profile
                   </Link>
                 </div>

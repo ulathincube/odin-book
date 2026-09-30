@@ -1,10 +1,15 @@
 .wrapper {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: var(--gray);
+  color: var(--white);
+  padding: var(--spacing-20) 0;
 }
 
 .container {
@@ -20,6 +25,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .messages {
@@ -38,8 +44,29 @@
   flex-direction: column;
   gap: var(--spacing-5);
   max-width: 40ch;
+  align-items: center;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  background-color: var(--gray);
+  padding: var(--spacing-10) var(--spacing-30);
+  border-radius: var(--border-radius-small);
+  display: inline-block;
+}
+
+.link:link,
+.link:visited {
+  color: var(--black);
 }
 
 .form {
   margin-top: auto;
+}
+
+.field {
+  min-width: 100%;
+  resize: none;
+  padding: var(--spacing-10);
 }
