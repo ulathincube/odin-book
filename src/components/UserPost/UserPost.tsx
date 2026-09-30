@@ -67,8 +67,6 @@ function UserPost({
 
   if (isError) return <div>{error.message}</div>
 
-  console.log({ commentCount })
-
   return (
     <li
       className={styles.post}
