@@ -6,6 +6,7 @@ import { Socket, io } from "socket.io-client"
 import { useEffect, useState } from "react"
 
 interface User {
+  id: string
   username: string
   profile: {
     id: string

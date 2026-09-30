@@ -2,6 +2,7 @@ import styles from "./MessageMain.module.css"
 import { Link } from "react-router"
 
 interface User {
+  id: string
   username: string
   profile: {
     id: string
@@ -61,7 +62,7 @@ function MessageMain({ user = null }: Props) {
                 <p className={styles.date}>Joined 20 June 2010</p>
                 <p className={styles.followers}>2000 Followers</p>
                 <div className={styles.actions}>
-                  <Link className={styles.link} to="/">
+                  <Link className={styles.link} to={`/users/${user.id}`}>
                     View Profile
                   </Link>
                 </div>
