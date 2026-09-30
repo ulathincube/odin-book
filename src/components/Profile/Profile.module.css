@@ -83,14 +83,21 @@
 }
 
 .follow,
-.share {
+.share,
+.message {
   padding: var(--spacing-10) var(--spacing-20);
   border: none;
   color: var(--white);
   border-radius: var(--border-radius-small);
 }
 
-.follow {
+.message {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.follow,
+.message {
   background-color: var(--theme-color);
 }
 

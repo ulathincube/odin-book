@@ -84,6 +84,11 @@ function Profile({ userId }: Props) {
               </button>
             </div>
             <div className={styles.action}>
+              <Link to={`/messages/chat/${userId}`} className={styles.message}>
+                Message
+              </Link>
+            </div>
+            <div className={styles.action}>
               <button className={styles.share}>Share</button>
             </div>
           </section>
