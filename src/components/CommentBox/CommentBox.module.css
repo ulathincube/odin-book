@@ -10,6 +10,10 @@
   gap: var(--spacing-15);
 }
 
+.label {
+  font-size: var(--font-size-medium);
+}
+
 .group {
   display: flex;
   flex-direction: column;
@@ -21,15 +25,19 @@
   resize: none;
   min-width: 100%;
   border: 1px solid var(--gray);
-  padding: var(--spacing-10);
+  padding: var(--spacing-20);
   border-radius: var(--border-radius-small);
   min-height: 150px;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .submit {
   background-color: var(--theme-color);
   color: var(--white);
   border-radius: var(--border-radius-small);
-  padding: var(--spacing-10) var(--spacing-20);
+  padding: var(--spacing-10) var(--spacing-30);
   border: none;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
