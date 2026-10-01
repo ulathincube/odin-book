@@ -9,6 +9,7 @@
   --font-weight-medium: 500;
   --background-color: hsl(200deg 10% 95%);
   --text-color: hsl(200deg 15% 10%);
+  --text-color-lighter: hsl(200deg 15% 25%);
   --link-color: hsl(200deg 35% 10%);
   --dark-gray: hsl(200deg 10% 60%);
   --gray: hsl(200deg 10% 80%);

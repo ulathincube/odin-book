@@ -9,3 +9,10 @@ export function getTimeDifference(time: string) {
     .toObject()
   return difference
 }
+
+export function parseDate(time: string): string {
+  if (!time) {
+    time = DateTime.now().toLocaleString()
+  }
+  return DateTime.fromSQL(time).toFormat("DDD")
+}

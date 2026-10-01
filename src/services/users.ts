@@ -2,6 +2,7 @@ import api from "../utils/axios"
 
 interface User {
   id: string
+  created: string
   username: string
   profile: {
     status: string
@@ -36,12 +37,6 @@ interface ExpandedUser extends User {
     followedBy: number
     following: number
   }
-}
-
-interface ResponseObject {
-  data: User[]
-  error: null | string
-  message: string
 }
 
 interface UserResponse {

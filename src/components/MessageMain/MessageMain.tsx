@@ -1,8 +1,10 @@
 import styles from "./MessageMain.module.css"
 import { Link } from "react-router"
+import { parseDate } from "../../utils/luxon"
 
 interface User {
   id: string
+  created: string
   username: string
   profile: {
     id: string
@@ -10,6 +12,10 @@ interface User {
     avatar: string
     birthday: string
     location: string
+  }
+  _count: {
+    followedBy: number
+    following: number
   }
 }
 
@@ -59,8 +65,10 @@ function MessageMain({ user = null }: Props) {
           <section className={styles.main}>
             <article className={styles.messages}>
               <div className={styles.sticker}>
-                <p className={styles.date}>Joined 20 June 2010</p>
-                <p className={styles.followers}>2000 Followers</p>
+                <p className={styles.date}>Joined {parseDate(user.created)}</p>
+                <p className={styles.followers}>
+                  {user._count.followedBy} Followers
+                </p>
                 <div className={styles.actions}>
                   <Link className={styles.link} to={`/users/${user.id}`}>
                     View Profile

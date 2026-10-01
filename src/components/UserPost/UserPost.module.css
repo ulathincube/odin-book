@@ -22,18 +22,6 @@
   border-radius: var(--border-radius-bottom);
 }
 
-.checkmark {
-  background-color: var(--theme-color);
-
-  border-radius: var(--circle);
-  width: var(--icon-size);
-  height: var(--icon-size);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5px;
-}
-
 .check {
   color: var(--white);
 }
@@ -66,8 +54,8 @@
 }
 
 .username {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-lighter);
 }
 
 .more {
@@ -126,7 +114,16 @@
   font-weight: var(--font-weight-bold);
 }
 
+.icon,
+.checkmark {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
 .icon {
   color: var(--dark-gray);
-  stroke-width: 1.5;
+}
+
+.checkmark {
+  color: var(--theme-color);
 }

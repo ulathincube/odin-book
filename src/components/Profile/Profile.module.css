@@ -4,7 +4,6 @@
 
   /* border: 1px solid var(--gray); */
   padding: var(--padding);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-30);
@@ -12,10 +11,6 @@
 
 .wallpaper {
   display: flex;
-  margin-left: calc(var(--padding) * -1);
-  margin-right: calc(var(--padding) * -1);
-  margin-top: calc(var(--padding) * -1);
-  background-color: var(--gray);
   height: 300px;
   position: relative;
 }
@@ -23,6 +18,7 @@
 .background {
   width: 100%;
   object-fit: cover;
+  border-radius: var(--border-radius-top);
 }
 
 .title {

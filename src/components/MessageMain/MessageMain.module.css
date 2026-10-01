@@ -10,11 +10,13 @@
   background-color: var(--gray);
   color: var(--white);
   padding: var(--spacing-20);
+  align-items: center;
 }
 
 .container {
   display: flex;
   gap: var(--spacing-10);
+  align-items: center;
 }
 
 .more {

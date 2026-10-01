@@ -1,6 +1,6 @@
 .wrapper {
   padding: var(--padding);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius);
   border: 1px solid var(--gray);
   overflow: hidden;
   padding: var(--spacing-30);
@@ -9,9 +9,6 @@
 .title {
   margin-bottom: 10px;
   font-size: 2rem;
-  margin-left: calc(var(--padding) * -1);
-  margin-right: calc(var(--padding) * -1);
-  margin-top: calc(var(--padding) * -1);
 
   font-weight: 400;
 }

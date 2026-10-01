@@ -7,6 +7,11 @@ import { useEffect, useState } from "react"
 
 interface User {
   id: string
+  created: string
+  _count: {
+    followedBy: number
+    following: number
+  }
   username: string
   profile: {
     id: string
