@@ -21,6 +21,13 @@
   border-radius: var(--border-radius-top);
 }
 
+.featured {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  padding: var(--spacing-10);
+}
+
 .title {
   font-size: var(--font-size-medium);
   display: flex;
@@ -31,7 +38,7 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-5);
+  gap: var(--spacing-10);
 }
 
 .info,
@@ -75,7 +82,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 300;
+  font-size: var(--font-size-medium);
 }
 
 .follow,

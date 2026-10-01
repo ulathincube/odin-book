@@ -64,7 +64,7 @@ function Profile({ userId }: Props) {
           </h3>
           <ul className={styles.info}>
             <li className={styles.item}>
-              <p className={styles.username}>{data.data.username}</p>
+              <p className={styles.username}>@{data.data.username}</p>
             </li>
             <li className={styles.item}>
               <p className={styles.follows}>

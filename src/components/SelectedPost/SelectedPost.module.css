@@ -11,11 +11,11 @@
 .context {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-30);
+  gap: var(--spacing-15);
 }
 
 .name {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-medium);
 }
 
 .box {
@@ -34,7 +34,7 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-15);
+  gap: var(--spacing-10);
 }
 
 .action {
@@ -72,11 +72,16 @@
 }
 
 .icon {
-  stroke-width: 1.5;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.time {
+  font-weight: 300;
 }
 
 .text {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .list {
