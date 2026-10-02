@@ -66,3 +66,10 @@
     font-size: 1.1rem;
   }
 }
+
+@media screen and (max-width: 43.75rem) {
+  .field,
+  .post {
+    font-size: var(--font-size-standard);
+  }
+}

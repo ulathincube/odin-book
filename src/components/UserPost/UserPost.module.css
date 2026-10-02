@@ -135,6 +135,6 @@
   }
 
   .content {
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-standard);
   }
 }
