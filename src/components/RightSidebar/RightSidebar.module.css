@@ -7,3 +7,11 @@
   padding: var(--padding);
   padding-top: 0;
 }
+
+@media screen and (max-width: 93.75rem) {
+  .aside {
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+  }
+}

@@ -2,3 +2,9 @@
   grid-area: main;
   background-color: var(--background-color);
 }
+
+@media screen and (max-width: 93.75rem) {
+  .main {
+    padding: 0 var(--spacing-20);
+  }
+}

@@ -48,10 +48,21 @@
 }
 
 .post {
-  padding: 10px 30px;
+  padding: var(--spacing-10) var(--spacing-30);
   background-color: var(--background-color);
   border: 1px solid var(--gray);
   border-radius: var(--border-radius-small);
   filter: drop-shadow(var(--shadow-small));
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 62.5rem) {
+  .wrapper {
+    padding: var(--spacing-20);
+  }
+
+  .post {
+    padding: var(--spacing-5) var(--spacing-20);
+    font-size: 1.1rem;
+  }
 }
