@@ -133,4 +133,8 @@
     width: var(--avatar-size);
     height: var(--avatar-size);
   }
+
+  .content {
+    font-size: var(--font-size-default);
+  }
 }
