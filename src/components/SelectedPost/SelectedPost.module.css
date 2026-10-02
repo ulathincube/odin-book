@@ -105,3 +105,33 @@
   flex-direction: column;
   gap: var(--spacing-15);
 }
+
+@media screen and (max-width: 93.75rem) {
+  .main {
+    margin-left: var(--spacing-10);
+    margin-right: var(--spacing-10);
+  }
+}
+
+@media screen and (max-width: 43.75rem) {
+  .box {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+  }
+
+  .main {
+    padding: var(--spacing-20);
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  .text {
+    font-size: var(--font-size-standard);
+  }
+
+  .user {
+    gap: var(--spacing-20);
+  }
+}
