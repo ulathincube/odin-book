@@ -137,6 +137,10 @@
   .content {
     font-size: var(--font-size-standard);
   }
+
+  .post:last-child {
+    border-radius: var(--border-radius-bottom-small);
+  }
 }
 
 @media screen and (max-width: 37.5rem) {

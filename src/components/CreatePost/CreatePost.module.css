@@ -72,4 +72,8 @@
   .post {
     font-size: var(--font-size-standard);
   }
+
+  .wrapper {
+    border-radius: var(--border-radius-top-small);
+  }
 }
