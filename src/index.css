@@ -34,6 +34,7 @@
   --avatar-size-small: 24px;
   --avatar-size-large: 72px;
   --icon-size: 20px;
+  --icon-size-small: 16px;
   --circle: 50%;
   --padding-large: 20px;
   --padding-button: var(--padding) var(--padding-large);

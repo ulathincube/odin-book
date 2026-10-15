@@ -138,3 +138,31 @@
     font-size: var(--font-size-standard);
   }
 }
+
+@media screen and (max-width: 37.5rem) {
+  .more {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .user {
+    flex-wrap: wrap;
+    gap: var(--spacing-5);
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .username {
+    flex-basis: 100%;
+  }
+
+  .checkmark,
+  .icon {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
+  }
+}
