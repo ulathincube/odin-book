@@ -1,4 +1,6 @@
-.footer {
+.wrapper {
   grid-area: footer;
   padding: var(--padding);
+  display: flex;
+  align-items: center;
 }
