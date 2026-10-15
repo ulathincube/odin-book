@@ -54,8 +54,7 @@
 }
 
 .username {
-  font-weight: var(--font-weight-bold);
-  color: var(--text-color-lighter);
+  font-weight: var(--font-weight-normal);
 }
 
 .more {
@@ -68,7 +67,7 @@
 }
 
 .content {
-  font-size: 1.1rem;
+  font-size: var(--font-size-standard);
 }
 
 .time {
