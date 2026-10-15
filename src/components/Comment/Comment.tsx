@@ -63,7 +63,7 @@ function Comment({ body, id, created, likes, author }: Props) {
         </div>
       </section>
       <div className={styles.name}>
-        <p className={styles.usernname}>{author.fullname}</p>
+        <p className={styles.username}>{author.fullname}</p>
         <div className={styles.other}>
           <button className={styles.more}>
             <svg

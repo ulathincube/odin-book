@@ -125,7 +125,7 @@
   }
 
   .name {
-    font-size: 1.1rem;
+    font-size: var(--font-size-standard);
   }
 
   .text {

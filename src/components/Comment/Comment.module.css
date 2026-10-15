@@ -1,9 +1,9 @@
 .comment {
   display: grid;
-  grid-template-columns: var(--avatar-size) auto;
-  grid-template-rows: var(--avatar-size) auto;
+  grid-template-columns: var(--avatar-size-small) auto;
+  grid-template-rows: var(--avatar-size-small) auto;
   align-items: start;
-  gap: var(--spacing-5) var(--spacing-10);
+  gap: var(--spacing-10) var(--spacing-20);
 }
 .details {
   grid-column: 1 / 2;
@@ -16,6 +16,7 @@
   justify-content: space-between;
   align-self: center;
   align-items: center;
+  font-size: var(--font-size-standard);
 }
 
 .text {
@@ -23,8 +24,8 @@
 }
 
 .box {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
+  width: var(--avatar-size-small);
+  height: var(--avatar-size-small);
   border-radius: var(--circle);
   overflow: hidden;
 }
@@ -47,23 +48,23 @@
   align-items: center;
 }
 
+.username,
+.written {
+  font-size: var(--font-size-small);
+}
+
 .action {
   background-color: transparent;
   border: none;
   display: flex;
+  align-items: center;
+  font-size: var(--font-size-small);
   gap: var(--spacing-5);
   color: var(--dark-gray);
 }
 
-.name {
-  font-size: var(--font-size-default);
-  font-weight: 400;
-  font-size: 1.2rem;
-}
-
 .written {
   max-width: 65ch;
-  font-size: 1.1rem;
 }
 
 .reactions {
@@ -82,4 +83,15 @@
   /* stroke-width: 1.5; */
   width: var(--icon-size);
   height: var(--icon-size);
+}
+
+@media screen and (max-width: 43.75rem) {
+  .icon {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
+  }
+
+  .time {
+    font-size: var(--font-size-small);
+  }
 }

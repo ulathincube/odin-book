@@ -1,6 +1,6 @@
 :root {
   --font-stack: "Google Sans", "Arial", "Helvetica", sans-serif;
-  --font-size-small: 0.85rem;
+  --font-size-small: 0.9rem;
   --font-size-standard: 1rem;
   --font-size-medium: 1.5rem;
   --font-size-large: 2rem;
@@ -35,7 +35,7 @@
     var(--border-radius-small);
   --border: 1px solid var(--gray);
   --avatar-size: 48px;
-  --avatar-size-small: 24px;
+  --avatar-size-small: 32px;
   --avatar-size-large: 72px;
   --icon-size: 20px;
   --icon-size-small: 16px;
