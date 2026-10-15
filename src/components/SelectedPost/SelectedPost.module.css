@@ -41,6 +41,7 @@
   background-color: transparent;
   border: none;
   display: flex;
+  align-items: center;
   gap: var(--spacing-5);
   color: var(--dark-gray);
 }
@@ -122,6 +123,13 @@
   .main {
     padding: var(--spacing-20);
     border-radius: var(--border-radius-small);
+    gap: var(--spacing-30);
+    margin-left: 0;
+    margin-right: 0;
+    padding: var(--spacing-10);
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid var(--gray);
   }
 
   .name {
@@ -133,6 +141,10 @@
   }
 
   .user {
-    gap: var(--spacing-20);
+    gap: var(--spacing-10);
+  }
+  .icon {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
   }
 }
