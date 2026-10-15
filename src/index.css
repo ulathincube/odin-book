@@ -28,7 +28,11 @@
   --border-radius-small: 5px;
   --border-radius-medium: 10px;
   --border-radius-top: var(--border-radius) var(--border-radius) 0 0;
+  --border-radius-top-small: var(--border-radius-small)
+    var(--border-radius-small) 0 0;
   --border-radius-bottom: 0 0 var(--border-radius) var(--border-radius);
+  --border-radius-bottom-small: 0 0 var(--border-radius-small)
+    var(--border-radius-small);
   --border: 1px solid var(--gray);
   --avatar-size: 48px;
   --avatar-size-small: 24px;

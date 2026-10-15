@@ -43,11 +43,28 @@
 }
 
 @media screen and (max-width: 43.75rem) {
-  .label {
-    font-size: 1.2rem;
+  .name {
+    font-size: var(--font-size-standard);
+  }
+
+  .label,
+  .field,
+  .submit {
+    font-size: var(--font-size-standard);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .icon {
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
   }
 
   .field {
-    font-size: var(--font-size-standard);
+    min-height: auto;
+    padding: var(--spacing-5);
+  }
+
+  .submit {
+    padding: var(--spacing-5) var(--spacing-15);
   }
 }

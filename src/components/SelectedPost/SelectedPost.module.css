@@ -121,6 +121,7 @@
 
   .main {
     padding: var(--spacing-20);
+    border-radius: var(--border-radius-small);
   }
 
   .name {
