@@ -1,9 +1,44 @@
 import styles from "./Register.module.css"
 import { Link } from "react-router"
+import { createUser } from "../../services/users"
+import { useMutation } from "@tanstack/react-query"
+import { useState } from "react"
 
 function Register() {
+  const [fullname, setFullname] = useState<string>("")
+  const [username, setUsername] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+
+  const registerMutation = useMutation({
+    mutationFn: () =>
+      createUser({
+        fullname,
+        username,
+        email,
+        password,
+      }),
+  })
+
+  const onFullnameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFullname(event.target.value)
+  }
+
+  const onUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value)
+  }
+
+  const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value)
+  }
+
+  const onPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value)
+  }
+
   const onFormSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+    registerMutation.mutate()
   }
 
   return (
@@ -29,6 +64,8 @@ function Register() {
               id="fullname"
               className={styles.field}
               placeholder="Jane Doe"
+              value={fullname}
+              onChange={onFullnameChange}
             />
           </div>
           <div className={styles.group}>
@@ -41,6 +78,8 @@ function Register() {
               id="username"
               className={styles.field}
               placeholder="janedoe420"
+              value={username}
+              onChange={onUsernameChange}
             />
           </div>
           <div className={styles.group}>
@@ -53,6 +92,8 @@ function Register() {
               id="email"
               className={styles.field}
               placeholder="janedoe@mail.com"
+              value={email}
+              onChange={onEmailChange}
             />
           </div>
           <div className={styles.group}>
@@ -65,6 +106,8 @@ function Register() {
               id="password"
               className={styles.field}
               placeholder="password"
+              value={password}
+              onChange={onPasswordChange}
             />
           </div>
           <div className={styles.group}>

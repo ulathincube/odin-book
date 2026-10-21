@@ -1,13 +1,10 @@
 import api from "../utils/axios"
 
 interface User {
-  id: string
-  created: string
+  fullname: string
   username: string
-  profile: {
-    status: string
-    avatar: string
-  }
+  password: string
+  email: string
 }
 
 interface Post {
@@ -57,6 +54,19 @@ interface ExpandedUsersResponse {
   message: string
 }
 
+interface User {
+  username: string
+  password: string
+  email: string
+  fullname: string
+}
+
+interface NormalResponse {
+  data: string
+  error: Error | string
+  message: string
+}
+
 export async function getAllUsers(): Promise<ExpandedUsersResponse> {
   const response = await api.get("/users")
   return response.data
@@ -84,9 +94,14 @@ export async function followUser({
 }: {
   currentUser: string
   userToFollow: string
-}): Promise<{ data: string; error: Error | string; message: string }> {
+}): Promise<NormalResponse> {
   const response = await api.post(
     `/users/${currentUser}/follow/${userToFollow}`,
   )
+  return response.data
+}
+
+export async function createUser(user: User): Promise<NormalResponse> {
+  const response = await api.post("/users", user)
   return response.data
 }
