@@ -9,6 +9,7 @@ import { findUserByEmail } from "./services/users"
 import { useState, useEffect, useCallback } from "react"
 import UserContext from "./context/UserContext"
 import Login from "./pages/Login"
+import Register from "./pages/Register"
 
 interface User {
   username: string
@@ -52,6 +53,7 @@ function App() {
           <Route path="messages/chat/:userId" element={<Chat />} />
           <Route path="messages" element={<Messages />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
