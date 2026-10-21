@@ -1,9 +1,28 @@
 import styles from "./Login.module.css"
 import { Link } from "react-router"
+import { useMutation } from "@tanstack/react-query"
+import { useState } from "react"
+import { loginUser } from "../../services/users"
 
 function Login() {
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+
+  const loginMutation = useMutation({
+    mutationFn: () => loginUser({ email, password }),
+  })
+
+  const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value)
+  }
+
+  const onPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value)
+  }
+
   const onFormSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+    loginMutation.mutate()
   }
 
   return (
@@ -29,6 +48,8 @@ function Login() {
               id="email"
               className={styles.field}
               placeholder="janedoe@mail.com"
+              value={email}
+              onChange={onEmailChange}
             />
           </div>
           <div className={styles.group}>
@@ -41,6 +62,8 @@ function Login() {
               id="password"
               className={styles.field}
               placeholder="password"
+              value={password}
+              onChange={onPasswordChange}
             />
           </div>
           <div className={styles.group}>

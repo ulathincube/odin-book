@@ -105,3 +105,17 @@ export async function createUser(user: User): Promise<NormalResponse> {
   const response = await api.post("/users", user)
   return response.data
 }
+
+export async function loginUser({
+  email,
+  password,
+}: {
+  email: string
+  password: string
+}): Promise<NormalResponse> {
+  const response = await api.post("/users", {
+    email,
+    password,
+  })
+  return response.data
+}
