@@ -102,7 +102,7 @@ export async function followUser({
 }
 
 export async function createUser(user: User): Promise<NormalResponse> {
-  const response = await api.post("/users", user)
+  const response = await api.post("/users/register", user)
   return response.data
 }
 
@@ -113,7 +113,7 @@ export async function loginUser({
   email: string
   password: string
 }): Promise<NormalResponse> {
-  const response = await api.post("/users", {
+  const response = await api.post("/users/login", {
     email,
     password,
   })

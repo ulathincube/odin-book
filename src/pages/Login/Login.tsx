@@ -3,6 +3,7 @@ import { Link } from "react-router"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import { loginUser } from "../../services/users"
+import Loading from "../../components/Loading"
 
 function Login() {
   const [email, setEmail] = useState<string>("")
@@ -24,6 +25,8 @@ function Login() {
     event.preventDefault()
     loginMutation.mutate()
   }
+
+  if (loginMutation.isPending) return <Loading />
 
   return (
     <main className={styles.wrapper}>

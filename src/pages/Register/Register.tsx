@@ -3,6 +3,7 @@ import { Link } from "react-router"
 import { createUser } from "../../services/users"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
+import Loading from "../../components/Loading"
 
 function Register() {
   const [fullname, setFullname] = useState<string>("")
@@ -40,6 +41,8 @@ function Register() {
     event.preventDefault()
     registerMutation.mutate()
   }
+
+  if (registerMutation.isPending) return <Loading />
 
   return (
     <main className={styles.wrapper}>
