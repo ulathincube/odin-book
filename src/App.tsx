@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound"
 import { findUserByEmail } from "./services/users"
 import { useState, useEffect, useCallback } from "react"
 import UserContext from "./context/UserContext"
+import ErrorContext from "./context/ErrorContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import ErrorNotification from "./components/ErrorNotification"
@@ -20,6 +21,8 @@ interface User {
     avatar: string
   }
 }
+
+const SHOW_MS: number = 2000
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -46,21 +49,28 @@ function App() {
     onChangeUser: cachedSetUser,
   }
 
+  const onShowErrorNotification = useCallback(() => {
+    setShowErrorNotification(true)
+    setTimeout(() => setShowErrorNotification(false), SHOW_MS)
+  }, [])
+
   return (
     <UserContext value={memoizedValue}>
       {showErrorNotification && <ErrorNotification />}
-      <Router>
-        <Routes>
-          <Route index={true} element={<Home />} />
-          <Route path="users/:userId" element={<UserProfile />} />
-          <Route path="posts/:postId" element={<PostDetail />} />
-          <Route path="messages/chat/:userId" element={<Chat />} />
-          <Route path="messages" element={<Messages />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      <ErrorContext value={onShowErrorNotification}>
+        <Router>
+          <Routes>
+            <Route index={true} element={<Home />} />
+            <Route path="users/:userId" element={<UserProfile />} />
+            <Route path="posts/:postId" element={<PostDetail />} />
+            <Route path="messages/chat/:userId" element={<Chat />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </ErrorContext>
     </UserContext>
   )
 }
