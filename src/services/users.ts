@@ -1,10 +1,20 @@
 import api from "../utils/axios"
 
-interface User {
+interface CreateUser {
   fullname: string
   username: string
   password: string
   email: string
+}
+
+interface User {
+  id: string
+  username: string
+  fullname: string
+  profile: {
+    status: string
+    avatar: string
+  }
 }
 
 interface Post {
@@ -101,7 +111,7 @@ export async function followUser({
   return response.data
 }
 
-export async function createUser(user: User): Promise<NormalResponse> {
+export async function createUser(user: CreateUser): Promise<NormalResponse> {
   const response = await api.post("/users/register", user)
   return response.data
 }

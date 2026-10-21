@@ -33,6 +33,7 @@ function App() {
     const runEffect = async () => {
       try {
         const { data } = await findUserByEmail("Tonya8@gmail.com")
+        console.log({ data })
         setUser(data)
       } catch (error: unknown) {
         if (error instanceof Error) console.log({ error })
