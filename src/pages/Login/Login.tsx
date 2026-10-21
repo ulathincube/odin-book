@@ -4,13 +4,26 @@ import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import { loginUser } from "../../services/users"
 import Loading from "../../components/Loading"
+import { useNavigate } from "react-router"
+import useError from "../../hooks/useError"
 
 function Login() {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
+  const navigate = useNavigate()
+  const onShowNotificationError = useError()
+
   const loginMutation = useMutation({
     mutationFn: () => loginUser({ email, password }),
+    onSuccess: () => {
+      setEmail("")
+      setPassword("")
+      navigate("/")
+    },
+    onError: () => {
+      onShowNotificationError()
+    },
   })
 
   const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {

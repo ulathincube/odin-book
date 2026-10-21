@@ -4,12 +4,17 @@ import { createUser } from "../../services/users"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import Loading from "../../components/Loading"
+import useError from "../../hooks/useError"
+import { useNavigate } from "react-router"
 
 function Register() {
   const [fullname, setFullname] = useState<string>("")
   const [username, setUsername] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+
+  const onShowNotificationError = useError()
+  const navigate = useNavigate()
 
   const registerMutation = useMutation({
     mutationFn: () =>
@@ -24,9 +29,10 @@ function Register() {
       setUsername("")
       setEmail("")
       setPassword("")
+      navigate("/login")
     },
-    onError: (error: unknown) => {
-      console.log({ error })
+    onError: () => {
+      onShowNotificationError()
     },
   })
 
