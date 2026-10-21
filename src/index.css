@@ -14,6 +14,7 @@
   --dark-gray: hsl(200deg 10% 60%);
   --gray: hsl(200deg 10% 80%);
   --white: hsl(200deg 15% 99%);
+  --red: hsl(10deg 100% 50%);
   --theme-color: hsl(200deg 100% 40%);
   --overlay: hsl(200deg 95% 5% / 0.5);
   --black: hsl(200deg 95% 5%);

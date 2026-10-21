@@ -10,6 +10,7 @@ import { useState, useEffect, useCallback } from "react"
 import UserContext from "./context/UserContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import ErrorNotification from "./components/ErrorNotification"
 
 interface User {
   username: string
@@ -22,6 +23,8 @@ interface User {
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
+  const [showErrorNotification, setShowErrorNotification] =
+    useState<boolean>(false)
 
   useEffect(() => {
     const runEffect = async () => {
@@ -45,6 +48,7 @@ function App() {
 
   return (
     <UserContext value={memoizedValue}>
+      {showErrorNotification && <ErrorNotification />}
       <Router>
         <Routes>
           <Route index={true} element={<Home />} />
