@@ -19,6 +19,15 @@ function Register() {
         email,
         password,
       }),
+    onSuccess: () => {
+      setFullname("")
+      setUsername("")
+      setEmail("")
+      setPassword("")
+    },
+    onError: (error: unknown) => {
+      console.log({ error })
+    },
   })
 
   const onFullnameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
