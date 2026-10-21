@@ -20,6 +20,30 @@ function Register() {
         </section>
         <form onSubmit={onFormSubmit} className={styles.form}>
           <div className={styles.group}>
+            <label className={styles.label} htmlFor="fullname">
+              Full Name
+            </label>
+            <input
+              required={true}
+              type="text"
+              id="fullname"
+              className={styles.field}
+              placeholder="Jane Doe"
+            />
+          </div>
+          <div className={styles.group}>
+            <label className={styles.label} htmlFor="username">
+              Username
+            </label>
+            <input
+              required={true}
+              type="username"
+              id="username"
+              className={styles.field}
+              placeholder="janedoe420"
+            />
+          </div>
+          <div className={styles.group}>
             <label className={styles.label} htmlFor="email">
               Email
             </label>

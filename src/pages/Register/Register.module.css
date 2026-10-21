@@ -58,6 +58,10 @@
   border: 1px solid var(--gray);
 }
 
+.field::placeholder {
+  color: var(--gray);
+}
+
 .action {
   border: none;
   background-color: var(--theme-color);
