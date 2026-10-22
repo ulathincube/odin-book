@@ -15,11 +15,19 @@ import Register from "./pages/Register"
 import ErrorNotification from "./components/ErrorNotification"
 
 interface User {
-  username: string
   id: string
+  created: string
+  username: string
   profile: {
+    id: string
     status: string
     avatar: string
+    birthday: string
+    location: string
+  }
+  _count: {
+    followedBy: number
+    following: number
   }
 }
 

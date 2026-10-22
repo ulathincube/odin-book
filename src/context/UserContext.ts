@@ -1,11 +1,19 @@
 import { createContext } from "react"
 
 interface User {
-  username: string
   id: string
+  created: string
+  username: string
   profile: {
+    id: string
     status: string
     avatar: string
+    birthday: string
+    location: string
+  }
+  _count: {
+    followedBy: number
+    following: number
   }
 }
 
