@@ -16,7 +16,7 @@ interface Props {
   }
 }
 
-function Comment({ body, id, created, likes, author }: Props) {
+function Comment({ body, created, likes, author }: Props) {
   const [isLiked, setIsLiked] = useState<boolean>(false)
 
   const onToggleLike = () => setIsLiked(!isLiked)

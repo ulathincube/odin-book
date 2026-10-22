@@ -5,30 +5,8 @@ import MessageMain from "../MessageMain"
 import { Socket, io } from "socket.io-client"
 import { useEffect, useState } from "react"
 
-interface User {
-  id: string
-  created: string
-  _count: {
-    followedBy: number
-    following: number
-  }
-  username: string
-  fullname: string
-  profile: {
-    id: string
-    status: string
-    avatar: string
-    birthday: string
-    location: string
-  }
-}
-
-interface Props {
-  user?: User | null
-}
-
-function MessageLayout({ user = null }: Props) {
-  const [webSocket, setWebSocket] = useState<Socket | null>(null)
+function MessageLayout() {
+  const [, setWebSocket] = useState<Socket | null>(null)
 
   useEffect(() => {
     const runEffect = () => {

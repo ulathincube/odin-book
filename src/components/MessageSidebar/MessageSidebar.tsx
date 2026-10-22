@@ -1,7 +1,6 @@
 import styles from "./MessageSidebar.module.css"
 import SearchUser from "../SearchUser"
 import MessageUser from "../MessageUser"
-import { useQuery } from "@tanstack/react-query"
 import { useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 
