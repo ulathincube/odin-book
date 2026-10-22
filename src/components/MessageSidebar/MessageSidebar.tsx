@@ -43,12 +43,10 @@ function MessageSidebar() {
       <article className={styles.users}>
         {userQueryData.data.map((userObject) => (
           <MessageUser
-            id={userObject.id}
+            user={userObject}
+            key={userObject.id}
             activeId={activeId}
             onChangeActiveId={onChangeActiveId}
-            key={userObject.id}
-            fullname={userObject.fullname}
-            avatar={userObject.profile.avatar}
           />
         ))}
       </article>
