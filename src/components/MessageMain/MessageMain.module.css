@@ -2,7 +2,7 @@
   grid-area: main;
   display: flex;
   flex-direction: column;
-  background-color: var(--main-background-color);
+  background-color: var(--light-gray);
   color: var(--text-color);
 }
 
@@ -44,6 +44,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  font-size: var(--font-size-small);
 }
 
 .sticker {
@@ -61,7 +62,8 @@
 
 .link {
   text-decoration: none;
-  background-color: var(--gray);
+  background-color: var(--dark-gray);
+  color: var(--white);
   padding: var(--spacing-10) var(--spacing-30);
   border-radius: var(--border-radius-small);
   display: inline-block;
@@ -69,7 +71,7 @@
 
 .link:link,
 .link:visited {
-  color: var(--black);
+  color: var(--white);
 }
 
 .form {
@@ -80,6 +82,11 @@
   min-width: 100%;
   resize: none;
   padding: var(--spacing-10);
+  border: 1px solid var(--gray);
+}
+
+.field:focus {
+  outline: 1px solid var(--dark-gray);
 }
 
 .form {
@@ -94,4 +101,10 @@
 
 .group {
   flex-basis: calc(100% - 400px);
+}
+
+@media screen and (max-width: 62.5rem) {
+  .group {
+    flex-basis: calc(100% - 250px);
+  }
 }

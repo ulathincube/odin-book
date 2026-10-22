@@ -46,7 +46,7 @@ function MessageLayout({ user = null }: Props) {
     <article className={styles.wrapper}>
       <Header />
       <MessageSidebar />
-      <MessageMain user={user} />
+      <MessageMain />
     </article>
   )
 }

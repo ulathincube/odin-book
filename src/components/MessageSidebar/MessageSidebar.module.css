@@ -13,3 +13,11 @@
   gap: var(--spacing-20);
   flex-direction: column;
 }
+
+@media screen and (max-width: 43.75rem) {
+  .wrapper {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
