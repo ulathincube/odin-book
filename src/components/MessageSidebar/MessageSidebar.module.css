@@ -1,6 +1,6 @@
 .wrapper {
   grid-area: left-sidebar;
-  border-right: var(--border-simple);
+  background-color: var(--white);
 }
 
 .box {
@@ -10,5 +10,6 @@
 .users {
   padding: var(--spacing-20) 0;
   display: flex;
-  gap: var(--spacing-10);
+  gap: var(--spacing-20);
+  flex-direction: column;
 }

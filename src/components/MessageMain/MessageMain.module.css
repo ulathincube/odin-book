@@ -2,6 +2,7 @@
   grid-area: main;
   display: flex;
   flex-direction: column;
+  background-color: var(--gray);
 }
 
 .header {

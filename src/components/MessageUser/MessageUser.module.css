@@ -1,12 +1,17 @@
 .wrapper {
   width: 100%;
+  display: flex;
 }
 
 .container {
-  padding: 0 var(--spacing-10);
+  padding: var(--spacing-10);
   display: grid;
   grid-template-columns: var(--avatar-size) 1fr;
   gap: 0 var(--spacing-10);
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  text-align: left;
 }
 
 .avatar {
@@ -24,6 +29,7 @@
 
 .name {
   font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-default);
 }
 
 .text {
@@ -31,4 +37,21 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: var(--font-size-small);
+}
+
+.active {
+  background-color: var(--text-color);
+  color: var(--white);
+  animation: fade-in 250ms linear forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

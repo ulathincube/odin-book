@@ -1,5 +1,5 @@
 .wrapper {
-  border-bottom: var(--border-simple);
+  border-bottom: 1px solid var(--gray);
   padding: var(--spacing-10) 0;
 }
 
@@ -10,7 +10,7 @@
 
 .field {
   flex: 1;
-  padding: var(--spacing-5);
+  padding: var(--spacing-10);
   border-radius: var(--spacing-5);
   border: var(--border-simple);
 }

@@ -13,6 +13,7 @@ interface User {
     following: number
   }
   username: string
+  fullname: string
   profile: {
     id: string
     status: string
@@ -38,6 +39,8 @@ function MessageLayout({ user = null }: Props) {
 
     return () => setWebSocket(null)
   }, [])
+
+  // console.log({ type: Array.isArray(cachedUsers?.data) })
 
   return (
     <article className={styles.wrapper}>
