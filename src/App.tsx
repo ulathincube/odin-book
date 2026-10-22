@@ -14,6 +14,7 @@ import AuthTokenContext from "./context/AuthTokenContext"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import ErrorNotification from "./components/ErrorNotification"
+import Protected from "./components/Protected"
 
 interface User {
   id: string
@@ -88,11 +89,13 @@ function App() {
           <ChatContext value={memoizedContactValue}>
             <Router>
               <Routes>
-                <Route index={true} element={<Home />} />
-                <Route path="users/:userId" element={<UserProfile />} />
-                <Route path="posts/:postId" element={<PostDetail />} />
-                <Route path="messages/chat/:userId" element={<Chat />} />
-                <Route path="messages" element={<Messages />} />
+                <Route element={<Protected />}>
+                  <Route index={true} element={<Home />} />
+                  <Route path="users/:userId" element={<UserProfile />} />
+                  <Route path="posts/:postId" element={<PostDetail />} />
+                  <Route path="messages/chat/:userId" element={<Chat />} />
+                  <Route path="messages" element={<Messages />} />
+                </Route>
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="*" element={<NotFound />} />
