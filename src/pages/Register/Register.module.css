@@ -49,6 +49,29 @@
   gap: var(--spacing-5);
 }
 
+.grouping {
+  position: relative;
+}
+
+.box {
+  position: absolute;
+  top: 75%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--gray);
+}
+
 .label {
   font-size: var(--font-size-medium);
 }
