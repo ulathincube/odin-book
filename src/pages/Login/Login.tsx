@@ -6,6 +6,7 @@ import { loginUser } from "../../services/users"
 import Loading from "../../components/Loading"
 import { useNavigate } from "react-router"
 import useError from "../../hooks/useError"
+import useAuth from "../../hooks/useAuth"
 
 function Login() {
   const [email, setEmail] = useState<string>("")
@@ -14,11 +15,14 @@ function Login() {
   const navigate = useNavigate()
   const onShowNotificationError = useError()
 
+  const { onChangeToken } = useAuth()
+
   const loginMutation = useMutation({
     mutationFn: () => loginUser({ email, password }),
-    onSuccess: () => {
+    onSuccess: (data) => {
       setEmail("")
       setPassword("")
+      onChangeToken(data.data)
       navigate("/")
     },
     onError: () => {
