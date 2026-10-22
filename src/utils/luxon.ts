@@ -11,8 +11,9 @@ export function getTimeDifference(time: string) {
 }
 
 export function parseDate(time: string): string {
+  console.log(typeof time)
   if (!time) {
     time = DateTime.now().toLocaleString()
   }
-  return DateTime.fromSQL(time).toFormat("DDD")
+  return DateTime.fromISO(time).toFormat("DDDD")
 }

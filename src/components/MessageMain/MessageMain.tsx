@@ -10,7 +10,7 @@ function MessageMain() {
     <main className={styles.wrapper}>
       {contact && (
         <>
-          <section className={styles.header}>
+          <header className={styles.header}>
             <figure className={styles.container}>
               <div className={styles.box}>
                 <img
@@ -43,7 +43,7 @@ function MessageMain() {
                 </svg>
               </button>
             </article>
-          </section>
+          </header>
           <section className={styles.main}>
             <article className={styles.messages}>
               <div className={styles.sticker}>
