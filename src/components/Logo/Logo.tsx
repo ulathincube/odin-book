@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div className={styles.wrapper}>
       <Link className={styles.logo} to="/">
-        Odin-Book
+        Socket-Social
       </Link>
     </div>
   )
