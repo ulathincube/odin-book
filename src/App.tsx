@@ -40,7 +40,11 @@ function App() {
   const [showErrorNotification, setShowErrorNotification] =
     useState<boolean>(false)
   const [contact, setContact] = useState<User | null>(null)
-  const [token, setToken] = useState<string>("")
+  const [token, setToken] = useState<string>(() =>
+    window.localStorage.getItem("token")
+      ? window.localStorage.getItem("token")!
+      : "",
+  )
 
   useEffect(() => {
     const runEffect = async () => {
@@ -55,6 +59,16 @@ function App() {
 
     runEffect()
   }, [])
+
+  useEffect(() => {
+    const runEffect = () => {
+      if (token) {
+        window.localStorage.setItem("token", token)
+      }
+    }
+
+    runEffect()
+  }, [token])
 
   const cachedSetUser = useCallback((newUser: User) => setUser(newUser), [])
 
