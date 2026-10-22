@@ -30,6 +30,7 @@ interface Post {
 interface ExpandedUser extends User {
   fullname: string
   username: string
+  created: string
   profile: {
     id: string
     status: string

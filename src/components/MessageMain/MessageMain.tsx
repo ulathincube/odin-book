@@ -1,44 +1,26 @@
 import styles from "./MessageMain.module.css"
 import { Link } from "react-router"
 import { parseDate } from "../../utils/luxon"
+import useContact from "../../hooks/useContact"
 
-interface User {
-  id: string
-  created: string
-  username: string
-  profile: {
-    id: string
-    status: string
-    avatar: string
-    birthday: string
-    location: string
-  }
-  _count: {
-    followedBy: number
-    following: number
-  }
-}
+function MessageMain() {
+  const { contact } = useContact()
 
-interface Props {
-  user?: User | null
-}
-
-function MessageMain({ user = null }: Props) {
   return (
     <main className={styles.wrapper}>
-      {user && (
+      {contact && (
         <>
           <section className={styles.header}>
             <figure className={styles.container}>
               <div className={styles.box}>
                 <img
-                  src={user.profile.avatar}
-                  alt={user.username}
+                  src={contact.profile.avatar}
+                  alt={contact.username}
                   className={styles.avatar}
                 />
               </div>
               <div className={styles.details}>
-                <p className={styles.username}>{user.username}</p>
+                <p className={styles.username}>{contact.username}</p>
               </div>
             </figure>
             <article className={styles.article}>
@@ -65,12 +47,14 @@ function MessageMain({ user = null }: Props) {
           <section className={styles.main}>
             <article className={styles.messages}>
               <div className={styles.sticker}>
-                <p className={styles.date}>Joined {parseDate(user.created)}</p>
+                <p className={styles.date}>
+                  Joined {parseDate(contact.created)}
+                </p>
                 <p className={styles.followers}>
-                  {user._count.followedBy} Followers
+                  {contact._count.followedBy} Followers
                 </p>
                 <div className={styles.actions}>
-                  <Link className={styles.link} to={`/users/${user.id}`}>
+                  <Link className={styles.link} to={`/users/${contact.id}`}>
                     View Profile
                   </Link>
                 </div>
