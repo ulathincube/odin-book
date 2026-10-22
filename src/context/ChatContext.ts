@@ -10,11 +10,11 @@ interface User {
 }
 
 const ChatContext = createContext<{
-  user: null | User
-  onChangeUser: (newUser: User) => void
+  contact: null | User
+  onChangeContact: (newContact: User) => void
 }>({
-  user: null,
-  onChangeUser: () => {},
+  contact: null,
+  onChangeContact: () => {},
 })
 
 export default ChatContext
