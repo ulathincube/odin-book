@@ -5,6 +5,7 @@ import UserPost from "../UserPost"
 import { useQuery } from "@tanstack/react-query"
 import { getAllPosts } from "../../services/posts"
 import Loading from "../Loading"
+import Error from "../Error"
 
 function Main() {
   const { isPending, isError, error, data } = useQuery({
@@ -18,7 +19,7 @@ function Main() {
   }
 
   if (isError) {
-    return <div>{error.message}</div>
+    return <Error />
   }
 
   return (
