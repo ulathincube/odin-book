@@ -5,4 +5,5 @@
   /* border-bottom: var(--border-simple); */
   display: flex;
   align-items: center;
+  gap: var(--spacing-20);
 }

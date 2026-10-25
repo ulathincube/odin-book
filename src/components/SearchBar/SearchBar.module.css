@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form,
+.group {
+  display: flex;
+  flex: 1;
+}
+
+.group {
+  position: relative;
+}
+
+.field {
+  flex: 1;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--gray);
+  padding: var(--spacing-10);
+  padding-left: var(--spacing-50);
+  background-color: var(--background-color);
+  color: var(--gray);
+}
+
+.field::placeholder {
+  color: var(--gray);
+}
+
+.box {
+  position: absolute;
+  top: 48%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: fit-content;
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--gray);
+}
