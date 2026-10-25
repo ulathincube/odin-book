@@ -10,7 +10,7 @@ function Protected() {
   useEffect(() => {
     const runEffect = () => {
       if (!token) {
-        navigate("/login")
+        // navigate("/login")
       }
     }
     runEffect()
