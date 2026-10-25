@@ -27,6 +27,7 @@
   align-items: center;
   font-size: var(--font-size-standard);
   border-radius: var(--border-radius-small);
+  font-weight: var(--font-weight-medium);
 }
 
 .try {
@@ -40,4 +41,34 @@
   background-color: var(--background-color);
   color: var(--black);
   border: 1px solid var(--gray);
+}
+
+@media screen and (max-width: 50rem) {
+  .title {
+    font-size: var(--font-size-medium);
+  }
+
+  .try,
+  .contact {
+    font-size: var(--font-size-default);
+  }
+}
+
+@media screen and (max-width: 43.75rem) {
+  .wrapper {
+    grid-column: 1 / -1;
+    padding: var(--spacing-10);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 37.5rem) {
+  .text {
+    font-size: var(--font-size-default);
+  }
 }
