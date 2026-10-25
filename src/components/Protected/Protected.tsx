@@ -7,8 +7,6 @@ function Protected() {
   const navigate = useNavigate()
   const { token } = useAuth()
 
-  console.log({ token })
-
   useEffect(() => {
     const runEffect = () => {
       if (!token) {
