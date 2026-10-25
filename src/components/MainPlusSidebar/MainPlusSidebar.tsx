@@ -16,6 +16,7 @@ function MainPlusSidebar() {
   const allUsersQuery = useQuery({
     queryKey: ["allUsers"],
     queryFn: getAllUsers,
+    retry: 1,
   })
 
   if (allPostsQuery.isPending || allUsersQuery.isPending) return <Loading />

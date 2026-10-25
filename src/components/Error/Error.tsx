@@ -9,7 +9,7 @@ function Error() {
       <div className={styles.description}>
         <p className={styles.text}>
           An unexpected error has occurred. Please try again or contact us if
-          the issues persists
+          the issue persists
         </p>
       </div>
       <div className={styles.actions}>
