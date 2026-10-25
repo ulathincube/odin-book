@@ -1,28 +1,33 @@
 import styles from "./RightSidebar.module.css"
 import PopularUsers from "../PopularUsers"
 import PopularUser from "../PopularUser"
-import { getAllUsers } from "../../services/users"
-import { useQuery } from "@tanstack/react-query"
-import Loading from "../Loading"
 
-function RightSidebar() {
-  const { isPending, isError, error, data } = useQuery({
-    queryKey: ["allUsers"],
-    queryFn: getAllUsers,
-  })
-
-  if (isPending) {
-    return <Loading />
+interface User {
+  id: string
+  created: string
+  username: string
+  profile: {
+    id: string
+    status: string
+    avatar: string
+    birthday: string
+    location: string
   }
-
-  if (isError) {
-    return <div>{error.message}</div>
+  _count: {
+    followedBy: number
+    following: number
   }
+}
 
+interface Props {
+  users: User[]
+}
+
+function RightSidebar({ users }: Props) {
   return (
     <aside className={styles.aside}>
       <PopularUsers>
-        {data.data.map(({ id, username, profile: { status, avatar } }) => (
+        {users.map(({ id, username, profile: { status, avatar } }) => (
           <PopularUser
             id={id}
             key={id}

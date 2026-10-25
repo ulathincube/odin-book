@@ -2,31 +2,49 @@ import styles from "./Main.module.css"
 import CreatePost from "../CreatePost"
 import UserPosts from "../UserPosts/UserPosts"
 import UserPost from "../UserPost"
-import { useQuery } from "@tanstack/react-query"
-import { getAllPosts } from "../../services/posts"
-import Loading from "../Loading"
-import Error from "../Error"
 
-function Main() {
-  const { isPending, isError, error, data } = useQuery({
-    queryKey: ["allPosts"],
-    queryFn: getAllPosts,
-    retry: 1,
-  })
-
-  if (isPending) {
-    return <Loading />
+interface Comment {
+  body: string
+  id: string
+  created: string
+  likes: number
+  author: {
+    fullname: string
+    username: string
+    profile: {
+      avatar: string
+    }
   }
+}
 
-  if (isError) {
-    return <Error />
+interface Post {
+  body: string
+  id: string
+  created: string
+  likes: number
+  author: {
+    fullname: string
+    username: string
+    profile: {
+      avatar: string
+    }
   }
+  comments: Comment[]
+  _count?: {
+    comments: number
+  }
+}
 
+interface Props {
+  posts: Post[]
+}
+
+function Main({ posts }: Props) {
   return (
     <main className={styles.main}>
       <CreatePost />
       <UserPosts>
-        {data.data.map(
+        {posts.map(
           ({
             id,
             created,
