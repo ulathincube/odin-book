@@ -6,6 +6,10 @@
   font-weight: var(--font-weight-medium);
   background-color: var(--background-color);
   isolation: isolate;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  height: calc(100% - 100px);
 }
 
 .navigation {

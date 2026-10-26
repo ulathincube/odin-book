@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  gap: var(--spacing-10);
+  margin-top: auto;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  overflow: hidden;
+  border-radius: var(--circle);
+}
+
+.name {
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
+}
+
+.username {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-normal);
+}

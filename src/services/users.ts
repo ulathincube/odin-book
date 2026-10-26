@@ -9,6 +9,7 @@ interface CreateUser {
 
 interface User {
   id: string
+  fullname: string
   created: string
   username: string
   profile: {

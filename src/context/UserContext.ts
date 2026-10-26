@@ -2,6 +2,7 @@ import { createContext } from "react"
 
 interface User {
   id: string
+  fullname: string
   created: string
   username: string
   profile: {

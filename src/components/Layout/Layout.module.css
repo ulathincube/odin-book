@@ -9,6 +9,7 @@
   width: 100%;
   min-height: 100%;
   gap: 0 50px;
+  isolation: isolate;
 }
 
 @media screen and (max-width: 93.75rem) {
