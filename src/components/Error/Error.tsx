@@ -1,6 +1,10 @@
 import styles from "./Error.module.css"
 
-function Error() {
+interface Props {
+  refetch: () => void
+}
+
+function Error({ refetch }: Props) {
   return (
     <article className={styles.wrapper}>
       <div className={styles.heading}>
@@ -13,7 +17,9 @@ function Error() {
         </p>
       </div>
       <div className={styles.actions}>
-        <button className={styles.try}>Try Again</button>
+        <button onClick={() => refetch()} className={styles.try}>
+          Try Again
+        </button>
         <button className={styles.contact}>Contact Us</button>
       </div>
     </article>

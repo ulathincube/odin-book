@@ -19,8 +19,14 @@ function MainPlusSidebar() {
     retry: 1,
   })
 
+  const refetch = () => {
+    allPostsQuery.refetch()
+    allUsersQuery.refetch()
+  }
+
   if (allPostsQuery.isPending || allUsersQuery.isPending) return <Loading />
-  if (allPostsQuery.isError || allUsersQuery.isError) return <Error />
+  if (allPostsQuery.isError || allUsersQuery.isError)
+    return <Error refetch={refetch} />
 
   return (
     <>

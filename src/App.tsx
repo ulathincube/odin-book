@@ -62,9 +62,7 @@ function App() {
 
   useEffect(() => {
     const runEffect = () => {
-      if (token) {
-        window.localStorage.setItem("token", token)
-      }
+      window.localStorage.setItem("token", token)
     }
 
     runEffect()
