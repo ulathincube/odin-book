@@ -1,2 +1,23 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  padding: var(--spacing-20);
+  background-color: var(--white);
+  border-radius: var(--border-radius-small);
+}
+
+.action {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-5);
+  font-size: var(--font-size-default);
+  font-weight: var(--font-weight-normal);
 }

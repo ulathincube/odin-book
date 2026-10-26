@@ -1,10 +1,15 @@
 import styles from "./UserAvatar.module.css"
 import useUser from "../../hooks/useUser"
+import AvatarContext from "../AvatarContext"
+import { useState } from "react"
 
 function UserAvatar() {
   const { user } = useUser()
+  const [showContext, setShowContext] = useState<boolean>(false)
 
-  console.log({ user })
+  const onShowContext = () => {
+    setShowContext(true)
+  }
 
   if (!user) return
 
@@ -21,7 +26,7 @@ function UserAvatar() {
         <h3 className={styles.name}>{user!.fullname}</h3>
         <p className={styles.username}>@{user!.username}</p>
       </div>
-      <button className={styles.action}>
+      <button onClick={onShowContext} className={styles.action}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -39,6 +44,7 @@ function UserAvatar() {
           <circle cx="5" cy="12" r="1"></circle>
         </svg>
       </button>
+      {showContext && <AvatarContext />}
     </article>
   )
 }
