@@ -1,6 +1,6 @@
 .wrapper {
   grid-area: header;
-  padding: var(--padding);
+  padding: var(--spacing-20) var(--spacing-10);
   background-color: var(--background-color);
   /* border-bottom: var(--border-simple); */
   display: flex;
@@ -9,4 +9,5 @@
   position: fixed;
   left: 0;
   top: 0;
+  width: 400px;
 }

@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  gap: var(--spacing-10);
+  gap: var(--spacing-20);
   margin-top: auto;
 }
 
@@ -24,4 +24,15 @@
 .username {
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-normal);
+}
+
+.action {
+  border: none;
+  background-color: transparent;
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--dark-gray);
 }
