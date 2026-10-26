@@ -4,15 +4,38 @@ import LeftSidebar from "../LeftSidebar"
 import RightSidebar from "../RightSidebar"
 import SelectedPost from "../SelectedPost"
 import { useParams } from "react-router"
+import { useQueryClient } from "@tanstack/react-query"
+
+interface User {
+  id: string
+  created: string
+  username: string
+  fullname: string
+  profile: {
+    id: string
+    status: string
+    avatar: string
+    birthday: string
+    location: string
+  }
+  _count: {
+    followedBy: number
+    following: number
+  }
+}
 
 function PostDetailLayout() {
+  const queryClient = useQueryClient()
+
+  const users: { data: User[] } = queryClient.getQueryData(["allUsers"])
+
   const { postId } = useParams()
   return (
     <section className={styles.grid}>
       <Header />
       <LeftSidebar />
       {postId && <SelectedPost postId={postId} />}
-      <RightSidebar />
+      <RightSidebar users={users.data} />
     </section>
   )
 }
