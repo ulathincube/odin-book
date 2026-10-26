@@ -20,7 +20,7 @@ interface User {
 
 const UserContext = createContext<{
   user: User | null
-  onChangeUser: (newUser: User) => void
+  onChangeUser: (newUser: User | null) => void
 }>({
   user: null,
   onChangeUser: () => {},

@@ -72,7 +72,7 @@ function App() {
 
   const cachedSetUser = useCallback((newUser: User) => setUser(newUser), [])
 
-  const memoizedValue = {
+  const memoizedUserValue = {
     user,
     onChangeUser: cachedSetUser,
   }
@@ -97,7 +97,7 @@ function App() {
 
   return (
     <AuthTokenContext value={memoizedTokenValue}>
-      <UserContext value={memoizedValue}>
+      <UserContext value={memoizedUserValue}>
         {showErrorNotification && <ErrorNotification />}
         <ErrorContext value={onShowErrorNotification}>
           <ChatContext value={memoizedContactValue}>

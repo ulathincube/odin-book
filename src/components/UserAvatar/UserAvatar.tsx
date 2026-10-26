@@ -11,6 +11,10 @@ function UserAvatar() {
     setShowContext(true)
   }
 
+  const onHideContext = () => {
+    setShowContext(false)
+  }
+
   if (!user) return
 
   return (
@@ -44,7 +48,7 @@ function UserAvatar() {
           <circle cx="5" cy="12" r="1"></circle>
         </svg>
       </button>
-      {showContext && <AvatarContext />}
+      {showContext && <AvatarContext onHideContext={onHideContext} />}
     </article>
   )
 }
