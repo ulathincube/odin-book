@@ -53,6 +53,15 @@
   position: relative;
 }
 
+.demo {
+  padding: var(--spacing-10);
+  border: 2px solid var(--dark-gray);
+  color: var(--dark-gray);
+  background-color: transparent;
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-medium);
+}
+
 .box {
   position: absolute;
   top: 75%;

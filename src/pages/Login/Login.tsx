@@ -7,6 +7,7 @@ import Loading from "../../components/Loading"
 import { useNavigate } from "react-router"
 import useError from "../../hooks/useError"
 import useAuth from "../../hooks/useAuth"
+import useUser from "../../hooks/useUser"
 
 function Login() {
   const [email, setEmail] = useState<string>("")
@@ -17,13 +18,15 @@ function Login() {
   const onShowNotificationError = useError()
 
   const { onChangeToken } = useAuth()
+  const { onChangeUser } = useUser()
 
   const loginMutation = useMutation({
     mutationFn: () => loginUser({ email, password }),
     onSuccess: (data) => {
       setEmail("")
       setPassword("")
-      onChangeToken(data.data)
+      onChangeToken(data.data.token)
+      onChangeUser(data.data.user)
       navigate("/")
     },
     onError: () => {
@@ -45,6 +48,12 @@ function Login() {
 
   const onFormSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
+    loginMutation.mutate()
+  }
+
+  const onLoginDemoUser = () => {
+    setEmail("michaeldesanta@yahoo.com")
+    setPassword("grandtheftauto")
     loginMutation.mutate()
   }
 
@@ -130,6 +139,15 @@ function Login() {
           <div className={styles.group}>
             <button type="submit" className={styles.action}>
               Login
+            </button>
+          </div>
+          <div className={styles.group}>
+            <button
+              onClick={onLoginDemoUser}
+              type="button"
+              className={styles.demo}
+            >
+              Use Demo account
             </button>
           </div>
         </form>

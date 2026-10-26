@@ -86,6 +86,15 @@ interface NormalResponse {
   message: string
 }
 
+interface LoginResponse {
+  data: {
+    token: string
+    user: User
+  }
+  error: Error | string
+  message: string
+}
+
 export async function getAllUsers(): Promise<ExpandedUsersResponse> {
   const response = await api.get("/users")
   return response.data
@@ -131,7 +140,7 @@ export async function loginUser({
 }: {
   email: string
   password: string
-}): Promise<NormalResponse> {
+}): Promise<LoginResponse> {
   const response = await api.post("/users/login", {
     email,
     password,
