@@ -25,6 +25,8 @@ function Login() {
     onSuccess: (data) => {
       setEmail("")
       setPassword("")
+      window.localStorage.setItem("token", data.data.token)
+      window.localStorage.setItem("user", JSON.stringify(data.data.user))
       onChangeToken(data.data.token)
       onChangeUser(data.data.user)
       navigate("/")

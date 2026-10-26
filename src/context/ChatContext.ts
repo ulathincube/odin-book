@@ -4,6 +4,7 @@ interface User {
   id: string
   created: string
   username: string
+  fullname: string
   profile: {
     id: string
     status: string
@@ -19,7 +20,7 @@ interface User {
 
 const ChatContext = createContext<{
   contact: null | User
-  onChangeContact: (newContact: User) => void
+  onChangeContact: (newContact: User | null) => void
 }>({
   contact: null,
   onChangeContact: () => {},

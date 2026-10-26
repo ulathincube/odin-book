@@ -20,6 +20,7 @@ interface User {
   id: string
   created: string
   username: string
+  fullname: string
   profile: {
     id: string
     status: string
@@ -62,13 +63,29 @@ function App() {
 
   useEffect(() => {
     const runEffect = () => {
-      window.localStorage.setItem("token", token)
+      // window.localStorage.setItem("token", token)
+      // window.localStorage.setItem("user", JSON.stringify(user))
+
+      const isToken = window.localStorage.getItem("token")
+      const isUser = window.localStorage.getItem("user")
+
+      if (isToken && !token) {
+        const storedToken = window.localStorage.getItem("token")!
+        setToken(storedToken)
+      }
+
+      if (isUser && !user) {
+        const storedUser = JSON.parse(window.localStorage.getItem("user")!)
+        setUser(storedUser)
+      }
     }
-
     runEffect()
-  }, [token])
+  }, [token, user])
 
-  const cachedSetUser = useCallback((newUser: User) => setUser(newUser), [])
+  const cachedSetUser = useCallback(
+    (newUser: User | null) => setUser(newUser),
+    [],
+  )
 
   const memoizedUserValue = {
     user,
@@ -78,7 +95,7 @@ function App() {
   const memoizedContactValue = {
     contact,
     onChangeContact: useCallback(
-      (newContact: User) => setContact(newContact),
+      (newContact: User | null) => setContact(newContact),
       [],
     ),
   }

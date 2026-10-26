@@ -48,7 +48,12 @@ function UserAvatar() {
           <circle cx="5" cy="12" r="1"></circle>
         </svg>
       </button>
-      {showContext && <AvatarContext onHideContext={onHideContext} />}
+      {showContext && (
+        <AvatarContext
+          onHideContext={onHideContext}
+          showContext={showContext}
+        />
+      )}
     </article>
   )
 }
