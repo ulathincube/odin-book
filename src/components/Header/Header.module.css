@@ -10,6 +10,7 @@
   left: 0;
   top: 0;
   width: 400px;
+  isolation: isolate;
 }
 
 @media screen and (max-width: 43.75rem) {
