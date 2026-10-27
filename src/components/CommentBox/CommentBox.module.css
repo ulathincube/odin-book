@@ -27,11 +27,9 @@
   border: 1px solid var(--gray);
   padding: var(--spacing-20);
   border-radius: var(--border-radius-small);
-  min-height: 150px;
   font-weight: 500;
   background-color: var(--background-color);
-  font-size: var(--font-size-standard);
-  color: var(--gray);
+  font-size: var(--font-size-small);
 }
 
 .field:focus {
@@ -53,11 +51,9 @@
     font-size: var(--font-size-standard);
   }
 
-  .label,
-  .field,
   .submit {
-    font-size: var(--font-size-standard);
-    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
   }
 
   .icon {
@@ -66,7 +62,6 @@
   }
 
   .field {
-    min-height: auto;
     padding: var(--spacing-10);
   }
 }

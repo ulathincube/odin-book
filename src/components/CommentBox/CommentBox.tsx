@@ -47,13 +47,13 @@ function CommentBox({ postId }: Props) {
     <section className={styles.wrapper}>
       <form onSubmit={onFormSubmit} className={styles.form}>
         <div className={styles.group}>
-          <label className={styles.label} htmlFor="comment">
+          {/* <label className={styles.label} htmlFor="comment">
             Comment
-          </label>
+          </label> */}
           <textarea
             value={comment}
             onChange={onChangeComment}
-            placeholder="Reply"
+            placeholder="Join the conversation"
             id="comment"
             className={styles.field}
           />

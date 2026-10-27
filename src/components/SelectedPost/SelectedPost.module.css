@@ -130,6 +130,7 @@
 
   .main {
     gap: var(--spacing-30);
+    padding: var(--spacing-10);
     /* margin-left: 0;
     margin-right: 0; */
   }
