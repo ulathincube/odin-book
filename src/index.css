@@ -1,7 +1,7 @@
 :root {
   --font-stack: "Plus Jakarta Sans", "Arial", "Helvetica", sans-serif;
   --font-size-small: 0.95rem;
-  --font-size-standard: 1rem;
+  --font-size-standard: 1.1rem;
   --font-size-medium: 1.3rem;
   --font-size-large: 1.8rem;
   --font-weight-bold: 800;
@@ -26,6 +26,7 @@
   --spacing-15: 15px;
 
   --spacing-20: 20px;
+  --spacing-25: 25px;
   --spacing-30: 30px;
   --spacing-50: 50px;
   --border-radius: 20px;
@@ -41,7 +42,7 @@
   --avatar-size: 48px;
   --avatar-size-small: 32px;
   --avatar-size-large: 72px;
-  --icon-size: 20px;
+  --icon-size: 24px;
   --icon-size-small: 16px;
   --icon-size-medium: 32px;
   --circle: 50%;

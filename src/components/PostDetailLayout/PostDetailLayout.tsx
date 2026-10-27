@@ -26,10 +26,14 @@ interface User {
 
 function PostDetailLayout() {
   const queryClient = useQueryClient()
-
-  const users: { data: User[] } = queryClient.getQueryData(["allUsers"])
-
   const { postId } = useParams()
+
+  const users: { data: User[] } | undefined = queryClient.getQueryData([
+    "allUsers",
+  ])
+
+  if (!users) return
+
   return (
     <section className={styles.grid}>
       <Header />

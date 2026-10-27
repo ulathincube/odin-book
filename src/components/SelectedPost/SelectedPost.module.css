@@ -34,7 +34,7 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-10);
+  gap: var(--spacing-20);
 }
 
 .action {
@@ -78,7 +78,7 @@
 }
 
 .time {
-  font-weight: 300;
+  font-size: var(--font-size-standard);
 }
 
 .text {
@@ -87,6 +87,7 @@
 
 .list {
   list-style: none;
+  padding-left: var(--spacing-25);
 }
 
 .user {
@@ -104,13 +105,20 @@
 .comments {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-15);
+  gap: var(--spacing-50);
 }
 
 @media screen and (max-width: 93.75rem) {
   .main {
     margin-left: var(--spacing-10);
     margin-right: var(--spacing-10);
+  }
+}
+
+@media screen and (max-width: 62.5rem) {
+  .main {
+    border: none;
+    margin: 0;
   }
 }
 
@@ -121,15 +129,9 @@
   }
 
   .main {
-    padding: var(--spacing-20);
-    border-radius: var(--border-radius-small);
     gap: var(--spacing-30);
-    margin-left: 0;
-    margin-right: 0;
-    padding: var(--spacing-10);
-    border: none;
-    border-radius: 0;
-    border-top: 1px solid var(--gray);
+    /* margin-left: 0;
+    margin-right: 0; */
   }
 
   .name {

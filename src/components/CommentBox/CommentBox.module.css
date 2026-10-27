@@ -28,8 +28,14 @@
   padding: var(--spacing-20);
   border-radius: var(--border-radius-small);
   min-height: 150px;
-  font-size: 1.1rem;
   font-weight: 500;
+  background-color: var(--background-color);
+  font-size: var(--font-size-standard);
+  color: var(--gray);
+}
+
+.field:focus {
+  outline: 1px solid var(--gray);
 }
 
 .submit {
@@ -61,10 +67,17 @@
 
   .field {
     min-height: auto;
-    padding: var(--spacing-5);
+    padding: var(--spacing-10);
+  }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .box {
+    flex: 1;
+    display: flex;
   }
 
   .submit {
-    padding: var(--spacing-5) var(--spacing-15);
+    flex: 1;
   }
 }
