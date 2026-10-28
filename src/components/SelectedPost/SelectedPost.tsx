@@ -30,22 +30,22 @@ function SelectedPost({ postId }: Props) {
   )
 
   if (seconds) {
-    timeDuration = `${seconds}s`
+    timeDuration = `${seconds} seconds ago`
   }
   if (minutes) {
-    timeDuration = `${minutes}m`
+    timeDuration = `${minutes} minutes ago`
   }
   if (hours) {
-    timeDuration = `${hours}h`
+    timeDuration = `${hours} hours ago`
   }
   if (days) {
-    timeDuration = `${days}d`
+    timeDuration = `${days} days ago`
   }
   if (weeks) {
-    timeDuration = `${weeks}w`
+    timeDuration = `${weeks} weeks ago`
   }
   if (months) {
-    timeDuration = `${months}mon`
+    timeDuration = `${months} months ago`
   }
 
   return (

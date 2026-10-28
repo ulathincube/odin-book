@@ -151,3 +151,10 @@
     height: var(--icon-size-small);
   }
 }
+
+@media screen and (max-width: 25rem) {
+  .time {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+  }
+}
