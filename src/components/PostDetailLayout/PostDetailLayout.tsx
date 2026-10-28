@@ -30,7 +30,7 @@ function PostDetailLayout() {
 
   const users: { data: User[] } | undefined = queryClient.getQueryData([
     "allUsers",
-  ])
+  ])!
 
   if (!users) return
 
