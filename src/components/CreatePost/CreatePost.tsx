@@ -20,8 +20,7 @@ function CreatePost() {
 
   const onCreatePost = (event: React.SubmitEvent<HTMLElement>) => {
     event.preventDefault()
-
-    if (!user && !!text) return
+    if (!user || !text) return
 
     const newPost: Post = {
       body: text,
@@ -56,7 +55,9 @@ function CreatePost() {
           ></input>
         </div>
         <div className={styles.group}>
-          <button className={styles.post}>Post</button>
+          <button type="submit" className={styles.post}>
+            Post
+          </button>
         </div>
       </form>
     </section>
