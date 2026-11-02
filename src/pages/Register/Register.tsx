@@ -132,7 +132,11 @@ function Register() {
               value={password}
               onChange={onPasswordChange}
             />
-            <button onClick={onToggleShowPassword} className={styles.box}>
+            <button
+              type="button"
+              onClick={onToggleShowPassword}
+              className={styles.box}
+            >
               {!showPassword && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
