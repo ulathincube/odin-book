@@ -84,7 +84,23 @@ function UserPost({
           <figure className={styles.box}>
             <div className={styles.parent}>
               <img src={avatar} className={styles.image} alt="User avatar" />
-              <button className={styles.follow}>+</button>
+              <button className={styles.follow}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                 className={styles.add}
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
             </div>
           </figure>
           <section className={styles.details}>

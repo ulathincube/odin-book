@@ -111,6 +111,14 @@
   justify-content: center;
   align-items: center;
   font-weight: var(--font-weight-bold);
+  padding: 0;
+}
+
+.add {
+  flex: 1;
+  height: var(--icon-size);
+  width: var(--icon-size);
+  color: var(--white);
 }
 
 .icon,
