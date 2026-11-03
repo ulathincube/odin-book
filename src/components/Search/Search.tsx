@@ -1,6 +1,7 @@
 import styles from "./Search.module.css"
 import { createPortal } from "react-dom"
 import { useRef } from "react"
+import { motion } from "motion/react"
 
 type Props = {
   onHideSearch: () => void
@@ -24,7 +25,11 @@ function Search({ onHideSearch }: Props) {
   return createPortal(
     <section className={styles.wrapper}>
       <div ref={overlayRef} onClick={onOverlayClick} className={styles.overlay}>
-        <figure className={styles.search}>
+        <motion.figure
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={styles.search}
+        >
           <form onSubmit={onSearch} className={styles.form}>
             <div className={styles.group}>
               <input
@@ -37,7 +42,7 @@ function Search({ onHideSearch }: Props) {
               <button type="submit">Search</button>
             </div> */}
           </form>
-        </figure>
+        </motion.figure>
       </div>
     </section>,
     container,

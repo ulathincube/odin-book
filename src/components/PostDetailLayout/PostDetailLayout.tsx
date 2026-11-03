@@ -5,6 +5,7 @@ import RightSidebar from "../RightSidebar"
 import SelectedPost from "../SelectedPost"
 import { useParams } from "react-router"
 import { useQueryClient } from "@tanstack/react-query"
+import { motion } from "motion/react"
 
 interface User {
   id: string
@@ -35,12 +36,16 @@ function PostDetailLayout() {
   if (!users) return
 
   return (
-    <section className={styles.grid}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.grid}
+    >
       <Header />
       <LeftSidebar />
       {postId && <SelectedPost postId={postId} />}
       <RightSidebar users={users.data} />
-    </section>
+    </motion.section>
   )
 }
 

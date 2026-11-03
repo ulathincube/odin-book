@@ -5,6 +5,7 @@ import { createPost } from "../../services/posts"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 import Loading from "../Loading"
+import { motion } from "motion/react"
 
 interface Post {
   body: string
@@ -46,7 +47,11 @@ function NewThread({ onHideCreateThread }: Props) {
 
   return createPortal(
     <div className={styles.modal}>
-      <div className={styles.overlay}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={styles.overlay}
+      >
         <div className={styles.container}>
           <section className={styles.thread}>
             <article className={styles.actions}>
@@ -144,7 +149,7 @@ function NewThread({ onHideCreateThread }: Props) {
             </form>
           </section>
         </div>
-      </div>
+      </motion.div>
     </div>,
     container,
   )

@@ -3,15 +3,20 @@ import Header from "../Header"
 import LeftSidebar from "../LeftSidebar"
 import Footer from "../Footer"
 import MainPlusSidebar from "../MainPlusSidebar"
+import { motion } from "motion/react"
 
 function Layout() {
   return (
-    <section className={styles.grid}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.grid}
+    >
       <Header />
       <LeftSidebar />
       <MainPlusSidebar />
       <Footer />
-    </section>
+    </motion.section>
   )
 }
 

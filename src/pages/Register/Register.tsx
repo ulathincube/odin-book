@@ -6,6 +6,7 @@ import { useState } from "react"
 import Loading from "../../components/Loading"
 import useError from "../../hooks/useError"
 import { useNavigate } from "react-router"
+import { motion } from "motion/react"
 
 function Register() {
   const [fullname, setFullname] = useState<string>("")
@@ -65,7 +66,11 @@ function Register() {
   if (registerMutation.isPending) return <Loading />
 
   return (
-    <main className={styles.wrapper}>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.wrapper}
+    >
       <article className={styles.container}>
         <section className={styles.heading}>
           <h2 className={styles.title}>Hey there</h2>
@@ -180,7 +185,7 @@ function Register() {
           </div>
         </form>
       </article>
-    </main>
+    </motion.main>
   )
 }
 

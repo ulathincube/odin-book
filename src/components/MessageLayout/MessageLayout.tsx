@@ -4,6 +4,7 @@ import MessageSidebar from "../MessageSidebar"
 import MessageMain from "../MessageMain"
 import { Socket, io } from "socket.io-client"
 import { useEffect, useState } from "react"
+import { motion } from "motion/react"
 
 function MessageLayout() {
   const [, setWebSocket] = useState<Socket | null>(null)
@@ -21,11 +22,15 @@ function MessageLayout() {
   // console.log({ type: Array.isArray(cachedUsers?.data) })
 
   return (
-    <article className={styles.wrapper}>
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.wrapper}
+    >
       <Header />
       <MessageSidebar />
       <MessageMain />
-    </article>
+    </motion.article>
   )
 }
 

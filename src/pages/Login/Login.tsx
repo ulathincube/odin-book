@@ -8,6 +8,7 @@ import { useNavigate } from "react-router"
 import useError from "../../hooks/useError"
 import useAuth from "../../hooks/useAuth"
 import useUser from "../../hooks/useUser"
+import { motion } from "motion/react"
 
 function Login() {
   const [email, setEmail] = useState<string>("")
@@ -62,7 +63,11 @@ function Login() {
   if (loginMutation.isPending) return <Loading />
 
   return (
-    <main className={styles.wrapper}>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.wrapper}
+    >
       <article className={styles.container}>
         <section className={styles.heading}>
           <h2 className={styles.title}>Welcome back</h2>
@@ -158,7 +163,7 @@ function Login() {
           </div>
         </form>
       </article>
-    </main>
+    </motion.main>
   )
 }
 

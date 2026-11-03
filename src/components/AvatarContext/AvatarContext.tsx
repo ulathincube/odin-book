@@ -3,6 +3,7 @@ import useUser from "../../hooks/useUser"
 import useAuth from "../../hooks/useAuth"
 import { useNavigate } from "react-router"
 import { useEffect, useRef } from "react"
+import { motion } from "motion/react"
 
 interface Props {
   onHideContext: () => void
@@ -37,7 +38,9 @@ function AvatarContext({ onHideContext, showContext }: Props) {
   }
 
   return (
-    <article
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       ref={contextParentRef}
       className={styles.wrapper}
       onClick={onClickContext}
@@ -49,7 +52,7 @@ function AvatarContext({ onHideContext, showContext }: Props) {
         <span className={styles.text}>Log Out</span>
         <span className={styles.username}>@{user!.username}</span>
       </button>
-    </article>
+    </motion.article>
   )
 }
 
