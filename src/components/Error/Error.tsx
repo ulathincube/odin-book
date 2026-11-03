@@ -1,4 +1,5 @@
 import styles from "./Error.module.css"
+import { motion } from "motion/react"
 
 interface Props {
   refetch: () => void
@@ -6,7 +7,11 @@ interface Props {
 
 function Error({ refetch }: Props) {
   return (
-    <article className={styles.wrapper}>
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.wrapper}
+    >
       <div className={styles.heading}>
         <h1 className={styles.title}>Something went wrong</h1>
       </div>
@@ -22,7 +27,7 @@ function Error({ refetch }: Props) {
         </button>
         <button className={styles.contact}>Contact Us</button>
       </div>
-    </article>
+    </motion.article>
   )
 }
 
