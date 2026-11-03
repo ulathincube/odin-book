@@ -29,25 +29,35 @@ function MessageSidebar() {
     | undefined = queryClient.getQueryData(["allUsers"])
 
   const [activeId, setActiveId] = useState<string>("")
+  const [searchQuery, setSearchQuery] = useState<string>("")
 
   const onChangeActiveId = (newActiveId: string) => {
     setActiveId(newActiveId)
+  }
+
+  const onSearchQuery = (query: string) => {
+    setSearchQuery(query)
   }
 
   if (!userQueryData) return
 
   return (
     <aside className={styles.wrapper}>
-      <SearchUser />
+      <SearchUser searchQuery={searchQuery} onSearchQuery={onSearchQuery} />
       <article className={styles.users}>
-        {userQueryData.data.map((userObject) => (
-          <MessageUser
-            user={userObject}
-            key={userObject.id}
-            activeId={activeId}
-            onChangeActiveId={onChangeActiveId}
-          />
-        ))}
+        {userQueryData.data
+          .filter((userObject) => {
+            if (!searchQuery) return userObject
+            return userObject.fullname.toLowerCase().includes(searchQuery)
+          })
+          .map((userObject) => (
+            <MessageUser
+              user={userObject}
+              key={userObject.id}
+              activeId={activeId}
+              onChangeActiveId={onChangeActiveId}
+            />
+          ))}
       </article>
     </aside>
   )
