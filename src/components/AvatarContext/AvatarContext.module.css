@@ -21,3 +21,7 @@
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-normal);
 }
+
+.username {
+  font-weight: var(--font-weight-medium);
+}
