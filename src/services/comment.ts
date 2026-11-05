@@ -25,8 +25,20 @@ interface Comment {
   }
 }
 
+interface LikeComment {
+  postId: string
+  commentId: string
+  likes: number
+}
+
 interface AllCommentsResponse {
   data: Comment[]
+  error: Error | null
+  message: string
+}
+
+interface SimpleResponse {
+  data: string
   error: Error | null
   message: string
 }
@@ -47,5 +59,16 @@ export async function getComments(
   postId: string,
 ): Promise<AllCommentsResponse> {
   const response = await api.get(`/comments/${postId}`)
+  return response.data
+}
+
+export async function likeComment({
+  postId,
+  commentId,
+  likes,
+}: LikeComment): Promise<SimpleResponse> {
+  const response = await api.post(`/${postId}/comment/${commentId}`, {
+    likes,
+  })
   return response.data
 }
