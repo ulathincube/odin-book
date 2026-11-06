@@ -1,6 +1,9 @@
 import styles from "./Comment.module.css"
 import { useState } from "react"
 import { getTimeDifference } from "../../utils/luxon"
+import { useMutation } from "@tanstack/react-query"
+import { likeComment } from "../../services/comment"
+import { useParams } from "react-router"
 
 interface Props {
   body: string
@@ -16,10 +19,19 @@ interface Props {
   }
 }
 
-function Comment({ body, created, likes, author }: Props) {
+function Comment({ body, created, likes, author, id }: Props) {
+  const { postId } = useParams()
+  const likeMutation = useMutation({
+    mutationFn: ({ likesCount }: { likesCount: number }) =>
+      likeComment({ postId: postId!, commentId: id, likes: likesCount }),
+  })
   const [isLiked, setIsLiked] = useState<boolean>(false)
 
-  const onToggleLike = () => setIsLiked(!isLiked)
+  const onToggleLike = () => {
+    const nextState = !isLiked
+    setIsLiked(nextState)
+    likeMutation.mutate({ likesCount: nextState ? likes + 1 : likes })
+  }
 
   let timeElapsed: string | null = null
 

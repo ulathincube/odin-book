@@ -67,7 +67,7 @@ export async function likeComment({
   commentId,
   likes,
 }: LikeComment): Promise<SimpleResponse> {
-  const response = await api.post(`/${postId}/comment/${commentId}`, {
+  const response = await api.post(`/comments/${postId}/comment/${commentId}`, {
     likes,
   })
   return response.data
